@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>WK 2014 - TMTIT-11</title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container_css">
+        <div id="header_css">
+            <div id="logo">
+                LOGO
+            </div>
+        </div>
+            <div id='cssmenu'>
+                <ul>
+                    <li class='active'><a href='default.aspx'><span>Home</span></a></li>
+                    <li><a href='poulegegevens.aspx'><span>poulegegevens</span></a></li>
+                    <li><a href='speelschema.aspx'><span>speelschema</span></a></li>
+                    <li><a href='uitslagen.aspx'><span>uitslagen</span></a></li>
+                    <li class='last'><a href='login.aspx'><span>login</span></a></li>
+                </ul>
+            </div>
+    </div>
+</body>
+</html>

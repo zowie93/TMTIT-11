@@ -1,0 +1,5 @@
+C:\Users\64253\Desktop\tmtit-11\tmtit-11\obj\Debug\tmtit-11.csprojResolveAssemblyReference.cache
+C:\Users\64253\Desktop\tmtit-11\tmtit-11\bin\tmtit-11.dll
+C:\Users\64253\Desktop\tmtit-11\tmtit-11\bin\tmtit-11.pdb
+C:\Users\64253\Desktop\tmtit-11\tmtit-11\obj\Debug\tmtit-11.dll
+C:\Users\64253\Desktop\tmtit-11\tmtit-11\obj\Debug\tmtit-11.pdb
