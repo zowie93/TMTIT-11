@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.OleDb;
 using tmtit_11.App_Code;
+using System.Web.Security;
 
 namespace tmtit_11
 {
@@ -25,7 +26,19 @@ namespace tmtit_11
             DataTable dt = database.dataSelecteren("select Admin_ID from Admin where Gebruikersnaam = '" + naam + "' and Wachtwoord = '" + wachtwoord + "'");
             if (dt.Rows.Count > 0)
             {
-                Response.Write("gelukt");
+                DataRow row = dt.Rows[0];
+                String savedId = row[0].ToString();
+
+                string cookiestr;
+                FormsAuthenticationTicket tkt = new FormsAuthenticationTicket(1, naam, DateTime.Now,
+                    DateTime.Now.AddMinutes(25), false, savedId);
+                cookiestr = FormsAuthentication.Encrypt(tkt);
+                HttpCookie ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
+                ck.Expires = tkt.Expiration;
+                ck.Path = FormsAuthentication.FormsCookiePath;
+                FormsAuthentication.SetAuthCookie(naam, false);
+                HttpContext.Current.Response.Cookies.Add(ck);
+                //Response.Redirect("Admin.aspx");
             }
             else
             {
