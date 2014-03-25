@@ -8,3 +8,8 @@ C:\Users\64253\Desktop\tmtit-11\tmtit-11\obj\Debug\tmtit-11.pdb
 \\webserver\Websites\tmtit-11\BACKUPS\20-3-2014_Zowie\tmtit-11\tmtit-11\obj\Debug\tmtit-11.csprojResolveAssemblyReference.cache
 \\webserver\Websites\tmtit-11\BACKUPS\20-3-2014_Zowie\tmtit-11\tmtit-11\obj\Debug\tmtit-11.dll
 \\webserver\Websites\tmtit-11\BACKUPS\20-3-2014_Zowie\tmtit-11\tmtit-11\obj\Debug\tmtit-11.pdb
+C:\Users\ZOWIE\Desktop\tmtit-11\tmtit-11\bin\tmtit-11.dll
+C:\Users\ZOWIE\Desktop\tmtit-11\tmtit-11\bin\tmtit-11.pdb
+C:\Users\ZOWIE\Desktop\tmtit-11\tmtit-11\obj\Debug\tmtit-11.csprojResolveAssemblyReference.cache
+C:\Users\ZOWIE\Desktop\tmtit-11\tmtit-11\obj\Debug\tmtit-11.dll
+C:\Users\ZOWIE\Desktop\tmtit-11\tmtit-11\obj\Debug\tmtit-11.pdb

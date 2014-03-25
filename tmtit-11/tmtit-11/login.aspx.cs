@@ -31,7 +31,7 @@ namespace tmtit_11
 
                 string cookiestr;
                 FormsAuthenticationTicket tkt = new FormsAuthenticationTicket(1, naam, DateTime.Now,
-                    DateTime.Now.AddMinutes(25), false, savedId);
+                DateTime.Now.AddMinutes(25), false, savedId);
                 cookiestr = FormsAuthentication.Encrypt(tkt);
                 HttpCookie ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
                 ck.Expires = tkt.Expiration;

@@ -1,0 +1,6 @@
+﻿Dit ifje in de page_load zetten als de pagina beveiligd is tegen het openen ervan bijv edit pages...
+
+if (!HttpContext.Current.Request.IsAuthenticated)
+            {
+                Response.Redirect("Login.aspx");
+            }
