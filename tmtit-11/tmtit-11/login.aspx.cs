@@ -22,27 +22,52 @@ namespace tmtit_11
         {
             String naam = gebruikerVeld.Text;
             String wachtwoord = wachtwoordVeld.Text;
-            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
-            DataTable dt = database.dataSelecteren("select Admin_ID from Admin where Gebruikersnaam = '" + naam + "' and Wachtwoord = '" + wachtwoord + "'");
-            if (dt.Rows.Count > 0)
+            if (naam == "" || wachtwoord == "")
             {
-                DataRow row = dt.Rows[0];
-                String savedId = row[0].ToString();
-
-                string cookiestr;
-                FormsAuthenticationTicket tkt = new FormsAuthenticationTicket(1, naam, DateTime.Now,
-                DateTime.Now.AddMinutes(25), false, savedId);
-                cookiestr = FormsAuthentication.Encrypt(tkt);
-                HttpCookie ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
-                ck.Expires = tkt.Expiration;
-                ck.Path = FormsAuthentication.FormsCookiePath;
-                FormsAuthentication.SetAuthCookie(naam, false);
-                HttpContext.Current.Response.Cookies.Add(ck);
-                //Response.Redirect("Admin.aspx");
+                foutGebruiker.Visible = true;
+                foutGebruiker.Text = "Vul wel uw naam in!";
+                foutWachtwoord.Visible = true;
+                foutWachtwoord.Text = "Vul wel een wachtwoord in";
+            }
+            else if (naam == "")
+            {
+                foutGebruiker.Visible = true;
+                foutGebruiker.Text = "Vul wel uw naam in!";
+                foutWachtwoord.Visible = false;
+            }
+            else if (wachtwoord == "")
+            {
+                foutWachtwoord.Visible = true;
+                foutWachtwoord.Text = "Vul wel een wachtwoord in";
+                foutGebruiker.Visible = false;
             }
             else
             {
-                Response.Write("Error!");
+                connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+                DataTable dt = database.dataSelecteren("select Admin_ID from Admin where Gebruikersnaam = '" + naam + "' and Wachtwoord = '" + wachtwoord + "'");
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    String savedId = row[0].ToString();
+
+                    string cookiestr;
+                    FormsAuthenticationTicket tkt = new FormsAuthenticationTicket(1, naam, DateTime.Now,
+                    DateTime.Now.AddMinutes(25), false, savedId);
+                    cookiestr = FormsAuthentication.Encrypt(tkt);
+                    HttpCookie ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
+                    ck.Expires = tkt.Expiration;
+                    ck.Path = FormsAuthentication.FormsCookiePath;
+                    FormsAuthentication.SetAuthCookie(naam, false);
+                    HttpContext.Current.Response.Cookies.Add(ck);
+                    //Response.Redirect("Admin.aspx");
+                }
+                else
+                {
+                    foutGebruiker.Visible = false;
+                    foutWachtwoord.Visible = false;
+                    Label1.Visible = true;
+                    Label1.Text = "Uw gebruikersnaam / Wachtwoord is verkeerd!";
+                }
             }
         }
     }
