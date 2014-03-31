@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adminMaken.aspx" />
     <Content Include="App_Data\tmtit11database.accdb" />
     <Content Include="App_Data\tmtit11database.mdb" />
     <Content Include="css\style.css" />
@@ -97,11 +98,19 @@
     <Content Include="img\vlaggen\9.gif" />
     <Content Include="login.aspx" />
     <Content Include="speelschema.aspx" />
+    <Content Include="instructies.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminMaken.aspx.cs">
+      <DependentUpon>adminMaken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminMaken.aspx.designer.cs">
+      <DependentUpon>adminMaken.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\connectieDatabase.cs" />
-    <Compile Include="crypt.cs" />
+    <Compile Include="encryptie.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

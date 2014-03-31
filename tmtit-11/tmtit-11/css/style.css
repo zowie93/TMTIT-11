@@ -67,7 +67,7 @@ table {
 /* Navigatie */
 #navigatie_css {
     width: 1280px;
-    height: 40px;;
+    height: 40px;
 }
 
 /* CSS Menu */
@@ -190,8 +190,16 @@ table {
 
 /* Login */
 #login {
-    width: 400px;
+    width: 450px;
     height: 300px;
+    margin: auto;
+    background-color: #FFFFFF;
+}
+
+/* Admin Paneel*/
+#adminpaneel {
+    width: 500px;
+    height: 400px;
     margin: auto;
     background-color: #FFFFFF;
 }

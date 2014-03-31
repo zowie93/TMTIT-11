@@ -10,7 +10,16 @@
 namespace tmtit_11 {
     
     
-    public partial class login {
+    public partial class adminMaken {
+        
+        /// <summary>
+        /// Head1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
         /// form1 control.
@@ -31,13 +40,13 @@ namespace tmtit_11 {
         protected global::System.Web.UI.WebControls.Table Table1;
         
         /// <summary>
-        /// gebruikerVeld control.
+        /// gebruikersNaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox gebruikerVeld;
+        protected global::System.Web.UI.WebControls.TextBox gebruikersNaam;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -49,13 +58,13 @@ namespace tmtit_11 {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// wachtwoordVeld control.
+        /// wachtWoord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wachtwoordVeld;
+        protected global::System.Web.UI.WebControls.TextBox wachtWoord;
         
         /// <summary>
         /// RequiredFieldValidator2 control.
@@ -67,21 +76,30 @@ namespace tmtit_11 {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// bnLogin control.
+        /// wachtWoordcontrole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bnLogin;
+        protected global::System.Web.UI.WebControls.TextBox wachtWoordcontrole;
         
         /// <summary>
-        /// Label1 control.
+        /// RequiredFieldValidator3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        
+        /// <summary>
+        /// btnAanmaken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAanmaken;
     }
 }
