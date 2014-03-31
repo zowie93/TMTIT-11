@@ -15,7 +15,7 @@ namespace tmtit_11
         protected void Page_Load(object sender, EventArgs e)
         {
             connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
-            DataTable dt = database.dataSelecteren("SELECT Wedstrijden.Wedstrijd_ID, Stadions.Stadion_naam, Wedstrijden.Datum, Wedstrijden.Begintijd, Teams.Team_naam, Teams.Team_ID, Teams_1.* FROM ((Wedstrijden INNER JOIN Stadions ON Wedstrijden.Stadion_ID = Stadions.Stadion_ID) INNER JOIN Teams ON Wedstrijden.Team1_ID = Teams.Team_ID) INNER JOIN Teams AS Teams_1 ON Wedstrijden.Team2_ID = Teams_1.Team_ID");
+            DataTable dt = database.dataSelecteren("SELECT Wedstrijden.Wedstrijd_ID, Stadions.Stadion_naam, Teams.Team_naam, Teams.Team_ID, Teams_1.*, Teams.Vlag, Wedstrijden.Datum, Wedstrijden.Begintijd FROM ((Wedstrijden INNER JOIN Stadions ON Wedstrijden.Stadion_ID = Stadions.Stadion_ID) INNER JOIN Teams ON Wedstrijden.Team1_ID = Teams.Team_ID) INNER JOIN Teams AS Teams_1 ON Wedstrijden.Team2_ID = Teams_1.Team_ID");
 
             string wedstrijdid = "";
             string stadionaam = "";
@@ -23,28 +23,30 @@ namespace tmtit_11
             string teamnaam2 = "";
             string begintijd = "";
             string vlag = "";
+            string vlag2 = "";
             string datum = "";
 
             int count = dt.Rows.Count;
 
             if (count > 0)
             {
-                bodyText += "<table border='0'>";
-                bodyText += "<td width='20px' style='text-align:center'><strong>ID</strong></td>";
-                bodyText += "<td width='250px' style='text-align:center'><strong>Stadionaam</strong></td>";
-                bodyText += "<td width='25px' style='text-align:center'><strong>Vlag</strong></td>";
-                bodyText += "<td width='85px' style='text-align:center'><strong>Land</strong></td>";
-                bodyText += "<td width='25px' style='text-align:center'></td>";
-                bodyText += "<td width='25px' style='text-align:center'><strong>Vlag</strong></td>";
-                bodyText += "<td width='85px' style='text-align:center'><strong>Land</strong></td>";
-                bodyText += "<td width='150px' style='text-align:center'><strong>Datum</strong></td>";
-                bodyText += "<td width='150px' style='text-align:center'><strong>Tijd</strong></td>";
+                bodyText += "<table border='1'>";
+                bodyText += "<th width='20px' height='30px' style='font-weight:bold'>ID</th>";
+                bodyText += "<th width='250px' style='text-align:center; font-weight:bold'>Stadionaam</th>";
+                bodyText += "<th width='25px'></th>";
+                bodyText += "<th width='85px' style='text-align:left; font-weight:bold'>Land</th>";
+                bodyText += "<th width='25px' style='text-align:center'></th>";
+                bodyText += "<th width='25px'></th>";
+                bodyText += "<th width='85px' style='text-align: left;font-weight:bold'>Land</th>";
+                bodyText += "<th width='100px' style='text-align:center; font-weight:bold'>Datum</th>";
+                bodyText += "<th width='100px' style='text-align:center; font-weight:bold'>Tijd</th>";
                 for(int i = 0; i < count; i++) 
                 {
                     wedstrijdid = dt.Rows[i]["Wedstrijd_ID"].ToString();
                     stadionaam = dt.Rows[i]["Stadion_naam"].ToString();
-                    vlag = dt.Rows[i]["vlag"].ToString();
+                    vlag = dt.Rows[i]["Teams.vlag"].ToString();
                     teamnaam = dt.Rows[i]["Teams.Team_naam"].ToString();
+                    vlag2 = dt.Rows[i]["Teams_1.vlag"].ToString();
                     teamnaam2 = dt.Rows[i]["Teams_1.Team_naam"].ToString();
                     datum = dt.Rows[i]["Datum"].ToString();
                     begintijd = dt.Rows[i]["Begintijd"].ToString();
@@ -53,22 +55,21 @@ namespace tmtit_11
                     if(i + 1 <= count)
                     {
                         bodyText += "<tr>";
-                        bodyText += "<td width='20px'>" + wedstrijdid + "</td>";
+                        bodyText += "<td width='25px'>" + wedstrijdid + "</td>";
                         bodyText += "<td width='250px'>" + stadionaam + "</td>";
                         bodyText += "<td width='25px'><img src='" + vlag + "' /></td>";
                         bodyText += "<td width='85px'>" + teamnaam + "</td>";
                         bodyText += "<td width='25px'> - </td>";
-                        bodyText += "<td width='25px'><img src='" + vlag + "' /></td>";
+                        bodyText += "<td width='25px'><img src='" + vlag2 + "' /></td>";
                         bodyText += "<td width='85'px>" + teamnaam2 + "</td>";
-                        bodyText += "<td width='150px' style='text-align:center'>" + datum + "</td>";
-                        bodyText += "<td width='150px' style='text-align:center'>" + begintijd + "</td>";
+                        bodyText += "<td width='100px' style='text-align:center'>" + datum + "</td>";
+                        bodyText += "<td width='100px' style='text-align:center'>" + begintijd + "</td>";
                         bodyText += "</tr>";
 
                         for (int j = i + 1; j < count; j++)
                         {
                             string s = dt.Rows[j]["Wedstrijd_ID"].ToString();
                             string ss = dt.Rows[i]["Wedstrijd_ID"].ToString();
-
                             if (dt.Rows[j]["Wedstrijd_ID"].ToString() == dt.Rows[i]["Wedstrijd_ID"].ToString())
                             {
                                 bodyText += "<tr>";
@@ -81,7 +82,8 @@ namespace tmtit_11
                 }
 
                 bodyText += "</table>";
-                Response.Write(bodyText);
+                speelSchema.Text = bodyText;
+                
             }
                 
             else
