@@ -71,114 +71,148 @@ table {
 }
 
 /* CSS Menu */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
 #cssmenu {
-  background: #898b8c;
-  width: auto;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
+  font-size: 12px;
+  line-height: 36px;
+  text-transform: uppercase;
+  text-align: left;
 }
-#cssmenu ul {
-  list-style: none;
-  margin: 0;
+#cssmenu > ul {
+  width: auto;
+  height: 60px;
+  list-style-type: none;
   padding: 0;
-  line-height: 1;
-  display: block;
+  margin: 0;
+  background: #4a4a4a;
+}
+#cssmenu > ul li#responsive-tab {
+  display: none;
+  /* Hide for large screens */
+
+}
+#cssmenu > ul li {
+  display: inline-block;
+  *display: inline;
   zoom: 1;
 }
-#cssmenu ul:after {
-  content: ' ';
-  display: block;
-  font-size: 0;
-  height: 0;
-  clear: both;
-  visibility: hidden;
+#cssmenu > ul li.right {
+  float: right;
 }
-#cssmenu ul li {
-  float: left;
-  display: block;
-  padding: 0;
-}
-#cssmenu ul li a {
-  color: #ffffff;
-  text-decoration: none;
-  display: block;
-  padding: 15px 25px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 14px;
+#cssmenu > ul li.has-sub {
   position: relative;
-  -webkit-transition: color .25s;
-  -moz-transition: color .25s;
-  -ms-transition: color .25s;
-  -o-transition: color .25s;
-  transition: color .25s;
 }
-#cssmenu ul li a:hover {
-  color: #02327a;
-}
-#cssmenu ul li a:hover:before {
-  width: 100%;
-}
-#cssmenu ul li a:after {
-  content: '';
+#cssmenu > ul li.has-sub:hover ul {
   display: block;
-  position: absolute;
-  right: -3px;
-  top: 19px;
-  height: 6px;
-  width: 6px;
-  background: #ffffff;
-  opacity: .5;
 }
-#cssmenu ul li a:before {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  width: 0;
-  background: #02327a;
-  -webkit-transition: width .25s;
-  -moz-transition: width .25s;
-  -ms-transition: width .25s;
-  -o-transition: width .25s;
-  transition: width .25s;
-}
-#cssmenu ul li.last > a:after,
-#cssmenu ul li:last-child > a:after {
+#cssmenu > ul li.has-sub ul {
   display: none;
+  width: 250px;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  background: #4a4a4a;
+  border-top: 0 none;
 }
-#cssmenu ul li.active a {
-  color: #02327a;
+#cssmenu > ul li.has-sub ul li {
+  display: block;
 }
-#cssmenu ul li.active a:before {
-  width: 100%;
+
+#cssmenu > ul li.has-sub > a.active,
+#cssmenu > ul li.has-sub > a:hover {
+  background: #001182;
 }
-@media screen and (max-width: 768px) {
-  #cssmenu ul li {
-    float: none;
-  }
-  #cssmenu ul li a {
+#cssmenu > ul li a {
+  display: block;
+  padding: 12px 24px 11px 24px;
+  text-decoration: none;
+  color: #ffffff;
+}
+#cssmenu > ul li a.active,
+#cssmenu > ul li a:hover {
+  background: #001182;
+  color: #fff;
+}
+
+#cssmenu > ul li.active a {
+  width: auto;
+  background: #001182;
+  color: #fff;
+}
+
+#cssmenu > ul li a active {
+  width: auto;
+  background: #001182;
+  color: #fff;
+}
+@media (max-width: 600px) {
+  #cssmenu > ul {
     width: 100%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+    background: #4a4a4a;
   }
-  #cssmenu ul li a:after {
+  #cssmenu > ul li#responsive-tab {
+    display: block;
+  }
+  #cssmenu > ul li#responsive-tab a {
+    background: url('/img/menu.png') no-repeat;
+    background-position: 35% -140%;
+  }
+  #cssmenu > ul li#responsive-tab a:hover {
+    background-color: #001182;
+    background-position: 35% -140%;
+
+  }
+  #cssmenu > ul li {
     display: none;
   }
-  #cssmenu ul li a:before {
-    height: 1px;
-    background: #ffffff;
+
+  #cssmenu ul li.active a {
+  background: #02327a;
+}
+  #cssmenu > ul li.right {
+    display: block;
+    position: static;
     width: 100%;
-    opacity: .2;
+    background: #4a4a4a;
+    border: 0 none;
   }
-  #cssmenu ul li.last > a:before,
-  #cssmenu ul li:last-child > a:before {
-    display: none;
+  #cssmenu > ul li.has-sub {
+    position: relative;
+  }
+  #cssmenu > ul li.has-sub ul {
+    display: block;
+    position: static;
+    width: 100%;
+    background: #4a4a4a;
+    border: 0 none;
+  }
+  #cssmenu > ul li.has-sub ul li {
+    display: block !important;
+  }
+  #cssmenu > ul li.has-sub ul li a span {
+    display: block;
+    padding-left: 24px;
+
+  }
+  #cssmenu > ul li.has-sub > a {
+    display: block;
+    background: #4a4a4a;
   }
 }
+
+@media (min-width: 600px) {
+  #cssmenu > ul > li.collapsed {
+    display: inline-block !important;
+    *display: inline;
+    zoom: 1;
+  }
+  #cssmenu > ul ul li.collapsed {
+    display: block !important;
+  }
+}
+
 
 /* Content */
 #content {
@@ -202,6 +236,19 @@ table {
     height: 400px;
     margin: auto;
     background-color: #FFFFFF;
+}
+
+/* Speelschema tabel*/
+.speelschema {
+    display: table-cell;
+    vertical-align: middle;
+    height: 500px;
+}
+
+#speelschemacenter {
+    width: 800px;
+    height: 650px;
+    margin: auto;
 }
 
 /* Footer */

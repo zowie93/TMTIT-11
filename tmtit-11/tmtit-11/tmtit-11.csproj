@@ -62,8 +62,10 @@
     <Content Include="App_Data\tmtit11database.mdb" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
+    <Content Include="img\caret.png" />
     <Content Include="img\header.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\menu.png" />
     <Content Include="img\vlaggen\1.gif" />
     <Content Include="img\vlaggen\10.gif" />
     <Content Include="img\vlaggen\11.gif" />
@@ -97,6 +99,8 @@
     <Content Include="img\vlaggen\8.gif" />
     <Content Include="img\vlaggen\9.gif" />
     <Content Include="login.aspx" />
+    <Content Include="menu_jquery.js" />
+    <Content Include="pouleinvullen.aspx" />
     <Content Include="speelschema.aspx" />
     <Content Include="instructies.txt" />
     <Content Include="Web.config" />
@@ -128,6 +132,13 @@
     <Compile Include="MasterPage.master.cs">
       <DependentUpon>MasterPage.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pouleinvullen.aspx.cs">
+      <DependentUpon>pouleinvullen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pouleinvullen.aspx.designer.cs">
+      <DependentUpon>pouleinvullen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="speelschema.aspx.cs">

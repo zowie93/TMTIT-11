@@ -5,7 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>WK 2014 - TMTIT-11 - Login </title>
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />    
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+	<script type='text/javascript' src='menu_jquery.js'></script>
 </head>
 <body>
     <div id="container_css">
@@ -17,11 +19,15 @@
         <div id="navigatie_css">
             <div id='cssmenu'>
                 <ul>
-                    <li><a href='default.aspx'><span>Home</span></a></li>
-                    <li><a href='poulegegevens.aspx'><span>poulegegevens</span></a></li>
-                    <li><a href='speelschema.aspx'><span>speelschema</span></a></li>
-                    <li><a href='uitslagen.aspx'><span>uitslagen</span></a></li>
-                    <li class='last active'><a href='login.aspx'><span>login</span></a></li>
+                   <li class='has-sub'><a href='default.aspx'><span>Home</span></a></li>
+                   <li class='has-sub'><a href='poulegegevens.aspx'><span>poulegegevens</span></a>
+                      <ul>
+                         <li><a href='pouleinvullen.aspx'><span>poule invullen</span></a></li>
+                      </ul>
+                   </li>
+                   <li class='has-sub'><a href='speelschema.aspx'><span>speelschema</span></a></li>
+                   <li class='has-sub'><a href='uitslagen.aspx'><span>uitslagen</span></a></li>
+                   <li class='has-sub last active'><a href='login.aspx'><span>login</span></a></li>
                 </ul>
             </div>
          </div>
