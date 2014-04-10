@@ -68,7 +68,26 @@ namespace tmtit_11.App_Code
 
         public int dataUpdate(string query)
         {
-            return dataInvoegen(query);
+            int resultaat2 = 0;
+            try
+            {
+                dataAdapter1.UpdateCommand.CommandText = query;
+                dataAdapter1.UpdateCommand.Connection.Open();
+                resultaat2 = dataAdapter1.UpdateCommand.ExecuteNonQuery();
+                dataAdapter1.UpdateCommand.Connection.Close();
+                errorBericht = "";
+                return resultaat2;
+            }
+            catch (Exception error)
+            {
+                errorBericht = error.Message;
+                dataAdapter1.UpdateCommand.Connection.Close();
+                return 0;
+            }
+            finally
+            {
+                dataAdapter1.SelectCommand.Connection.Close();
+            }
         }
 
         public int dataDelete(string query)
