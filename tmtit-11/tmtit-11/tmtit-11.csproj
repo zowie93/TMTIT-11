@@ -60,6 +60,7 @@
     <Content Include="adminMaken.aspx" />
     <Content Include="App_Data\tmtit11database.accdb" />
     <Content Include="App_Data\tmtit11database.mdb" />
+    <Content Include="backup_pouleinvullen.aspx" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="img\caret.png" />
@@ -100,6 +101,7 @@
     <Content Include="img\vlaggen\9.gif" />
     <Content Include="login.aspx" />
     <Content Include="menu_jquery.js" />
+    <Content Include="poulegegevens.aspx" />
     <Content Include="pouleinvullen.aspx" />
     <Content Include="speelschema.aspx" />
     <Content Include="instructies.txt" />
@@ -114,6 +116,13 @@
       <DependentUpon>adminMaken.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\connectieDatabase.cs" />
+    <Compile Include="backup_pouleinvullen.aspx.cs">
+      <DependentUpon>backup_pouleinvullen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="backup_pouleinvullen.aspx.designer.cs">
+      <DependentUpon>backup_pouleinvullen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="encryptie.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -132,6 +141,13 @@
     <Compile Include="MasterPage.master.cs">
       <DependentUpon>MasterPage.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="poulegegevens.aspx.cs">
+      <DependentUpon>poulegegevens.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="poulegegevens.aspx.designer.cs">
+      <DependentUpon>poulegegevens.aspx</DependentUpon>
     </Compile>
     <Compile Include="pouleinvullen.aspx.cs">
       <DependentUpon>pouleinvullen.aspx</DependentUpon>

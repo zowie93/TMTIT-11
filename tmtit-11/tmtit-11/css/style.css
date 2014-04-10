@@ -251,6 +251,10 @@ table {
     margin: auto;
 }
 
+/* Poule invullen */
+.label_center {
+    text-align: center;
+}
 /* Footer */
 #footer {
     width: 1280px;

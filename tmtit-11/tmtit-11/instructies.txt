@@ -52,3 +52,85 @@ if (!HttpContext.Current.Request.IsAuthenticated)
     <td>&nbsp;</td>
   </tr>
 </table>
+
+
+
+
+
+
+int numOfTextBox = 5;
+StringCollection sc = new StringCollection();
+
+for (int i = 1; i <= 5; i++)
+
+    //extract the TextBox values
+    TextBox txtQuestion =(TextBox)Page.FindControl("TextBoxQuestion" + i);
+    TextBox txtAnswer =(TextBox)Page.FindControl("TextBoxAnswer" + i);
+                   
+    //get the values here and add it in a collection
+
+    sc.Add(txtQuestion.Text + "," + txtAnswer.Text);
+}
+
+InsertRecords(sc);
+
+//End
+
+private void InsertRecords(StringCollection sc){
+        SqlConnection conn = new SqlConnection("Your Connection String");
+        StringBuilder sb = new StringBuilder(string.Empty);
+        string[] splitItems = null;
+        foreach (string item in sc)
+        {
+
+
+            const string sqlStatement = "INSERT INTO Table1 (Column1,Column2) VALUES";
+            if (item.Contains(","))
+            {
+                splitItems = item.Split(",".ToCharArray());
+                sb.AppendFormat("{0}('{1}','{2}'); ", sqlStatement, splitItems[0], splitItems[1]);
+            }
+
+
+        }
+
+
+        try
+        {
+
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.ExecuteNonQuery();
+
+        }
+        catch (System.Data.SqlClient.SqlException ex)
+        {
+            string msg = "Insert Error:";
+            msg += ex.Message;
+            throw new Exception(msg);
+
+
+        }
+        finally
+        {
+            conn.Close();
+        }
+ }
+
+
+
+             <div id='cssmenu'>
+                <ul>
+                   <li class='has-sub' style='background: #4a4a4a;'><a href='default.aspx'><span>Home</span></a></li>
+                   <li class='has-sub active'><a href='poulegegevens.aspx'><span>poulegegevens</span></a>
+                      <ul>
+                         <li class='active'><a href='pouleinvullen.aspx'><span>poule invullen</span></a></li>
+                      </ul>
+                   </li>
+                   <li class='has-sub'><a href='speelschema.aspx'><span>speelschema</span></a>
+                   </li>
+                   <li class='has-sub'><a href='uitslagen.aspx'><span>uitslagen</span></a></li>
+                   <li class='has-sub last'><a href='login.aspx'><span>login</span></a></li>
+                </ul>
+            </div>
