@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.OleDb;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,7 +16,25 @@ namespace tmtit_11
         protected void Page_Load(object sender, EventArgs e)
         {
             connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
-            DataTable dt = database.dataSelecteren("SELECT Wedstrijden.Wedstrijd_ID, Teams.Team_naam AS Team1, Teams_1.Team_naam AS Team2, Wedstrijden.doelpuntenteam1 AS Score1, Wedstrijden.doelpuntenteam2 AS Score2 FROM Teams AS Teams_1 INNER JOIN (Teams INNER JOIN Wedstrijden ON Teams.Team_ID = Wedstrijden.Team1_ID) ON Teams_1.Team_ID = Wedstrijden.Team2_ID");
+            DataTable dt = database.dataSelecteren("SELECT Wedstrijden.Wedstrijd_ID, Teams.Team_naam AS Team1, Teams_1.Team_naam AS Team2, Wedstrijden.doelpuntenteam1 AS Score1, Wedstrijden.doelpuntenteam2 AS Score2, Poule.Poule_naam AS Poulenaam FROM (Teams AS Teams_1 INNER JOIN (Teams INNER JOIN Wedstrijden ON Teams.Team_ID = Wedstrijden.Team1_ID) ON Teams_1.Team_ID = Wedstrijden.Team2_ID) INNER JOIN Poule ON Wedstrijden.Poule_ID = Poule.Poule_ID");
+
+            /*
+            connectieDatabaseLos databaseLos = new connectieDatabaseLos();
+            OleDbConnection connectieLos = databaseLos.connectieDatabaseLosFunc();
+
+            string s = "SELECT * FROM Wedstrijden";
+
+            OleDbCommand resultaat = new OleDbCommand(s, connectieLos);
+
+            databaseLos.databaseOpen(connectieLos);
+
+          
+            resultaat.ExecuteNonQuery();
+
+           fillgrid();
+
+           databaseLos.databaseClose(connectieLos);
+            */
 
             if (!IsPostBack)
             {
@@ -25,7 +44,8 @@ namespace tmtit_11
         public void fillgrid()
         {
             connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
-            DataTable dt = database.dataSelecteren("SELECT Wedstrijden.Wedstrijd_ID, Teams.Team_naam AS Team1, Teams_1.Team_naam AS Team2, Wedstrijden.doelpuntenteam1 AS Score1, Wedstrijden.doelpuntenteam2 AS Score2 FROM Teams AS Teams_1 INNER JOIN (Teams INNER JOIN Wedstrijden ON Teams.Team_ID = Wedstrijden.Team1_ID) ON Teams_1.Team_ID = Wedstrijden.Team2_ID");
+            DataTable dt = database.dataSelecteren("SELECT Wedstrijden.Wedstrijd_ID, Teams.Team_naam AS Team1, Teams_1.Team_naam AS Team2, Wedstrijden.doelpuntenteam1 AS Score1, Wedstrijden.doelpuntenteam2 AS Score2, Poule.Poule_naam AS Poulenaam FROM (Teams AS Teams_1 INNER JOIN (Teams INNER JOIN Wedstrijden ON Teams.Team_ID = Wedstrijden.Team1_ID) ON Teams_1.Team_ID = Wedstrijden.Team2_ID) INNER JOIN Poule ON Wedstrijden.Poule_ID = Poule.Poule_ID");
+
 
             GridView1.DataSource = dt;
             GridView1.DataBind();
@@ -44,6 +64,7 @@ namespace tmtit_11
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            
             string id = ((Label)GridView1.Rows[e.RowIndex].FindControl("Label7")).Text;
             string team1 = ((Label)GridView1.Rows[e.RowIndex].FindControl("Label8")).Text;
             string score1 = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox1")).Text;
@@ -51,10 +72,21 @@ namespace tmtit_11
             string score2 = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("Textbox2")).Text;
             string team2 = ((Label)GridView1.Rows[e.RowIndex].FindControl("Label10")).Text;
 
-            string update = "UPDATE Wedstrijden SET doelpuntenteam1='" + score1 + "',doelpuntenteam2=" + score2 + " WHERE ID=" + id;
 
-            connectieDatabase database2 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
-            //String dt = database2.dataUpdate(update);
+
+            connectieDatabaseLos databaseLos = new connectieDatabaseLos();
+            OleDbConnection connectieLos = databaseLos.connectieDatabaseLosFunc();
+
+            string s = "UPDATE Wedstrijden SET doelpuntenteam1= " + score1 + ",doelpuntenteam2= " + score2 + " WHERE Wedstrijd_ID = " + id;
+            OleDbCommand resultaat = new OleDbCommand(s, connectieLos);
+
+            databaseLos.databaseOpen(connectieLos);
+            resultaat.ExecuteNonQuery();
+            GridView1.EditIndex = -1;
+            databaseLos.databaseClose(connectieLos);
+
+            fillgrid();
+            
         }
     }
 }

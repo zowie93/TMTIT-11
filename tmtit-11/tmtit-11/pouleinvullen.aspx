@@ -34,67 +34,81 @@
             </div>
          </div>
         <div id="content">
-
             <asp:ScriptManager ID="ScriptManager1" runat="server">
             </asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
                         <Columns>
-                            <asp:TemplateField HeaderText="ID">
+                            <asp:TemplateField HeaderText="ID" ItemStyle-Width="30px">
                                 <EditItemTemplate>
                                     <asp:Label ID="Label7" runat="server" Text='<%# Eval("Wedstrijd_ID") %>'></asp:Label>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("Wedstrijd_ID") %>'></asp:Label>
                                 </ItemTemplate>
+                                <ItemStyle Width="30px" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Team Naam 1">
+                            <asp:TemplateField HeaderText="Team Naam 1" ItemStyle-Width="150px">
                                 <EditItemTemplate>
                                     <asp:Label ID="Label8" runat="server" Text='<%# Eval("Team1") %>'></asp:Label>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label2" runat="server" Text='<%# Eval("Team1") %>'></asp:Label>
                                 </ItemTemplate>
+                                <ItemStyle Width="150px" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Score">
+                            <asp:TemplateField HeaderText="Score" ItemStyle-Width="50px">
                                 <EditItemTemplate>
-                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("Score1") %>'></asp:TextBox>
+                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("Score1") %>' ItemStyle-HorizontalAlign="Center" CssClass="textalignmidden"></asp:TextBox>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("Score1") %>'></asp:Label>
+                                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("Score1") %>' ItemStyle-HorizontalAlign="Center" CssClass="textalignmidden"></asp:Label>
                                 </ItemTemplate>
+                                <ItemStyle Width="50px" HorizontalAlign="Center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="-">
+                            <asp:TemplateField HeaderText="-" ItemStyle-Width="100px">
                                 <EditItemTemplate>
-                                    <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
+                                    <asp:Label ID="Label9" runat="server" style="text-align:center" Text="-" ItemStyle-HorizontalAlign="Center" CssClass="textalignmidden"></asp:Label>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:Label ID="Label4" runat="server" Text=" - "></asp:Label>
+                                    <asp:Label ID="Label4" runat="server" style="text-align:center" Text="-" ItemStyle-HorizontalAlign="Center" CssClass="textalignmidden"></asp:Label>
                                 </ItemTemplate>
+                                <ItemStyle CssClass="textalignmidden" Width="50px" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Score 2">
+                            <asp:TemplateField HeaderText="Score 2" ItemStyle-Width="50px">
                                 <EditItemTemplate>
-                                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Eval("Score2") %>'></asp:TextBox>
+                                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Eval("Score2") %>' CssClass="textalignmidden"></asp:TextBox>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("Score2") %>'></asp:Label>
+                                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("Score2") %>' CssClass="textalignmidden"></asp:Label>
                                 </ItemTemplate>
+                                <ItemStyle Width="80px" HorizontalAlign="Center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Team Naam 2">
+                            <asp:TemplateField HeaderText="Team Naam 2" ItemStyle-Width="150px">
                                 <EditItemTemplate>
                                     <asp:Label ID="Label10" runat="server" Text='<%# Eval("Team2") %>'></asp:Label>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label6" runat="server" Text='<%# Eval("Team2") %>'></asp:Label>
                                 </ItemTemplate>
+                                <ItemStyle Width="150px" />
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Poule" ItemStyle-Width="150px">
+                                <EditItemTemplate>
+                                    <asp:Label ID="Label12" runat="server" Text='<%# Eval("Poulenaam") %>'></asp:Label>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label11" runat="server" Text='<%# Eval("Poulenaam") %>'></asp:Label>
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" Width="150px" />
                             </asp:TemplateField>
                             <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
                         </Columns>
                         <FooterStyle BackColor="White" ForeColor="#000066" />
-                        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="Gray" Font-Bold="True" ForeColor="White" />
                         <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
-                        <RowStyle ForeColor="#000066" />
+                        <RowStyle ForeColor="Black" />
                         <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
                         <SortedAscendingCellStyle BackColor="#F1F1F1" />
                         <SortedAscendingHeaderStyle BackColor="#007DBB" />

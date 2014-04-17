@@ -264,3 +264,8 @@ table {
     font-weight: 600;
     line-height: 40px;
 }
+
+/* Middel-TXT */
+.textalignmidden {
+    text-align: center;
+}
