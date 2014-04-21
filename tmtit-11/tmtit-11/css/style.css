@@ -217,9 +217,59 @@ table {
 /* Content */
 #content {
     width: 1280px;
-    min-height: 650px;
+    min-height: 1250px;
     margin-top: 20px;
     background-color: #b6b6b6;
+}
+
+#kwartfinale {
+    background-color: #ffffff;
+    width: 600px;
+    height: auto;
+    margin-left: 80px;
+    padding: 10px;
+}
+
+#halvefinale {
+    background-color: #ffffff;
+    width: 600px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 80px;
+    padding: 10px;
+}
+
+#finale {
+    background-color: #ffffff;
+    width: 600px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 80px;
+    padding: 10px;
+}
+
+#leegscore {
+    background-color: #ffffff;
+    width: 600px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 80px;
+    padding: 10px;
+}
+
+
+#winnaar {
+    width: 600px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 80px;
+    padding: 10px;
+    font-weight: 900;
+    font-size: xx-large;
+}
+
+h1 {
+    font-weight: 700;
 }
 
 /* Login */
@@ -242,13 +292,23 @@ table {
 .speelschema {
     display: table-cell;
     vertical-align: middle;
-    height: 500px;
+    height: 700px;
 }
 
 #speelschemacenter {
-    width: 800px;
+    background-color: #ffffff;
+    width: 700px;
     height: 650px;
     margin: auto;
+    padding: 50px;
+}
+
+#poulgegevens {
+    background-color: #ffffff;
+    width: 475px;
+    height: 150px;
+    margin: auto;
+    padding: 20px;
 }
 
 /* Poule invullen */

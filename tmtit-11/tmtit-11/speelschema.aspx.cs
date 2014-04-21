@@ -11,7 +11,7 @@ namespace tmtit_11
 {
     public partial class speelschema : System.Web.UI.Page
     {
-        string bodyText = "";
+        string pouleA = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
@@ -30,16 +30,15 @@ namespace tmtit_11
 
             if (count > 0)
             {
-                bodyText += "<table border='1'>";
-                bodyText += "<th width='20px' height='30px' style='font-weight:bold'>ID</th>";
-                bodyText += "<th width='250px' style='text-align:center; font-weight:bold'>Stadionaam</th>";
-                bodyText += "<th width='25px'></th>";
-                bodyText += "<th width='85px' style='text-align:left; font-weight:bold'>Land</th>";
-                bodyText += "<th width='25px' style='text-align:center'></th>";
-                bodyText += "<th width='25px'></th>";
-                bodyText += "<th width='85px' style='text-align: left;font-weight:bold'>Land</th>";
-                bodyText += "<th width='100px' style='text-align:center; font-weight:bold'>Datum</th>";
-                bodyText += "<th width='100px' style='text-align:center; font-weight:bold'>Tijd</th>";
+                pouleA += "<table border='1'>";
+                pouleA += "<th width='250px' height='30px' style='text-align:center; font-weight:bold'>Stadionnaam</th>";
+                pouleA += "<th width='25px'></th>";
+                pouleA += "<th width='85px' style='text-align:left; font-weight:bold'>Land</th>";
+                pouleA += "<th width='25px' style='text-align:center'></th>";
+                pouleA += "<th width='25px'></th>";
+                pouleA += "<th width='85px' style='text-align: left;font-weight:bold'>Land</th>";
+                pouleA += "<th width='100px' style='text-align:center; font-weight:bold'>Datum</th>";
+                pouleA += "<th width='100px' style='text-align:center; font-weight:bold'>Tijd</th>";
                 for(int i = 0; i < count; i++) 
                 {
                     wedstrijdid = dt.Rows[i]["Wedstrijd_ID"].ToString();
@@ -54,17 +53,16 @@ namespace tmtit_11
 
                     if(i + 1 <= count)
                     {
-                        bodyText += "<tr>";
-                        bodyText += "<td width='25px'>" + wedstrijdid + "</td>";
-                        bodyText += "<td width='250px'>" + stadionaam + "</td>";
-                        bodyText += "<td width='25px'><img src='" + vlag + "' /></td>";
-                        bodyText += "<td width='85px'>" + teamnaam + "</td>";
-                        bodyText += "<td width='25px'> - </td>";
-                        bodyText += "<td width='25px'><img src='" + vlag2 + "' /></td>";
-                        bodyText += "<td width='85'px>" + teamnaam2 + "</td>";
-                        bodyText += "<td width='100px' style='text-align:center'>" + datum + "</td>";
-                        bodyText += "<td width='100px' style='text-align:center'>" + begintijd + "</td>";
-                        bodyText += "</tr>";
+                        pouleA += "<tr>";
+                        pouleA += "<td width='250px' height='24px'>" + stadionaam + "</td>";
+                        pouleA += "<td width='25px'><img src='" + vlag + "' /></td>";
+                        pouleA += "<td width='85px'>" + teamnaam + "</td>";
+                        pouleA += "<td width='25px'> - </td>";
+                        pouleA += "<td width='25px'><img src='" + vlag2 + "' /></td>";
+                        pouleA += "<td width='85'px>" + teamnaam2 + "</td>";
+                        pouleA += "<td width='100px' style='text-align:center'>" + datum + "</td>";
+                        pouleA += "<td width='100px' style='text-align:center'>" + begintijd + "</td>";
+                        pouleA += "</tr>";
 
                         for (int j = i + 1; j < count; j++)
                         {
@@ -72,17 +70,17 @@ namespace tmtit_11
                             string ss = dt.Rows[i]["Wedstrijd_ID"].ToString();
                             if (dt.Rows[j]["Wedstrijd_ID"].ToString() == dt.Rows[i]["Wedstrijd_ID"].ToString())
                             {
-                                bodyText += "<tr>";
-                                bodyText += "<td>" + dt.Rows[j]["Team_naam"].ToString() + "</td>";
-                                bodyText += "</tr>";
+                                pouleA += "<tr>";
+                                pouleA += "<td>" + dt.Rows[j]["Team_naam"].ToString() + "</td>";
+                                pouleA += "</tr>";
                                 i = i + 1;
                             }
                         }
                     }
                 }
 
-                bodyText += "</table>";
-                speelSchema.Text = bodyText;
+                pouleA += "</table>";
+                speelSchema.Text = pouleA;
                 
             }
                 

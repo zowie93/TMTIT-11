@@ -33,6 +33,7 @@
          </div>
         <div id="content">
             <div id="speelschemacenter">
+                <h2 style="text-align: center; font-size: 30px; font-weight:700">Speelschema WK 2014</h2>
                 <asp:Label ID="speelSchema" runat="server" CssClass="speelschema" HorizontalAlign="center"></asp:Label>
             </div>
         </div>

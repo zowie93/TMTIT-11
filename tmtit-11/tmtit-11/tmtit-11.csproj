@@ -105,6 +105,7 @@
     <Content Include="pouleinvullen.aspx" />
     <Content Include="speelschema.aspx" />
     <Content Include="instructies.txt" />
+    <Content Include="uitslagen.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +118,13 @@
     </Compile>
     <Compile Include="App_Code\connectieDatabase.cs" />
     <Compile Include="App_Code\connectieDatabaseLos.cs" />
+    <Compile Include="uitslagen.aspx.cs">
+      <DependentUpon>uitslagen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uitslagen.aspx.designer.cs">
+      <DependentUpon>uitslagen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="backup_pouleinvullen.aspx.cs">
       <DependentUpon>backup_pouleinvullen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

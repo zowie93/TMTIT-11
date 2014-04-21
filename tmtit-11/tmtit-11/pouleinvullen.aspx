@@ -38,7 +38,11 @@
             </asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+                    <asp:Label ID="score1_txt" runat="server" Text=""></asp:Label><br /><br />
+                    <asp:Label ID="score2_txt" runat="server" Text=""></asp:Label>
+
+
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                         <Columns>
                             <asp:TemplateField HeaderText="ID" ItemStyle-Width="30px">
                                 <EditItemTemplate>
@@ -104,6 +108,7 @@
                                 <ItemStyle HorizontalAlign="Center" Width="150px" />
                             </asp:TemplateField>
                             <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
+                            <asp:CommandField ShowSelectButton="True" />
                         </Columns>
                         <FooterStyle BackColor="White" ForeColor="#000066" />
                         <HeaderStyle BackColor="Gray" Font-Bold="True" ForeColor="White" />
@@ -115,14 +120,83 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#00547E" />
                     </asp:GridView>
+                    <br />
+                    <br />
+                    <div id="kwartfinale" style="background-color:#ffffff">
+                        <h1 style="text-align: center">KWART FINALE</h1>
+                    <br />
+                    <asp:Button ID="berekenPouleA" runat="server" OnClick="berekenPouleA_Click" Text="Bereken Poule A" />
+                    <asp:Button ID="berekenPouleB" runat="server" Text="Bereken Poule B" OnClick="berekenPouleB_Click" />
+                    <asp:Button ID="berekenPouleC" runat="server" Text="Bereken Poule C" OnClick="berekenPouleC_Click" />
+                    <asp:Button ID="berekenPouleD" runat="server" Text="Bereken Poule D" OnClick="berekenPouleD_Click" />
+                    <br />
+                    <asp:Label ID="labelPouleA" runat="server"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblTxtLand1" runat="server"></asp:Label>
+                    <asp:TextBox ID="txtBoxScore1" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblTxtStreep" runat="server" Text="-"></asp:Label>
+                    <asp:TextBox ID="txtBoxScore2" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblTxtLand2" runat="server"></asp:Label>
+                    <asp:Button ID="berekenPouleArest" runat="server" OnClick="berekenPouleArest_Click" Text="Invoeren" />
+                    <asp:Label ID="Label13" runat="server"></asp:Label>
+                    </div>
+                    <div id="halvefinale">
+                    <h1 style="text-align: center">HALVE FINALE</h1>
+                    <br />
+                        <asp:Button ID="Button1" runat="server" Text="Bereken Halve Finale" OnClick="Button1_Click" /><br />
+                        <asp:Label ID="halvefinaleLbl" runat="server"></asp:Label><br />
+                        <asp:Label ID="halvelblTxtLand1" runat="server" Width="90px"></asp:Label>
+                        <asp:TextBox ID="halvetxtBoxScore1" runat="server"></asp:TextBox>
+                        <asp:Label ID="streep2" runat="server" Text="-"></asp:Label>
+                        <asp:TextBox ID="halvetxtBoxScore2" runat="server"></asp:TextBox>
+                        <asp:Label ID="halvelblTxtLand2" runat="server" Width="90px"></asp:Label>
+                        <asp:Button ID="berekenPouleHalve1" runat="server" OnClick="berekenPouleHalve1_Click" Text="Invoeren" />
+                        <br />
+                        <asp:Label ID="halvelblTxtLand3" runat="server" Width="90px"></asp:Label>
+                        <asp:TextBox ID="halvetxtBoxScore3" runat="server"></asp:TextBox>
+                        <asp:Label ID="streep3" runat="server" Text="-"></asp:Label>
+                        <asp:TextBox ID="halvetxtBoxScore4" runat="server"></asp:TextBox>
+                        <asp:Label ID="halvelblTxtLand4" runat="server" Width="90px"></asp:Label>
+                        <asp:Button ID="berekenPouleHalve2" runat="server" OnClick="berekenPouleHalve2_Click" Text="Invoeren" />
+                        <br />
+                        <br />
+                        <asp:Label ID="halveFinaleTxt" runat="server"></asp:Label>
+                    </div>
+                    <div id="finale">
+                    <h1 style="text-align: center">FINALE</h1>
+                        <br />
+                        <asp:Button ID="Button2" runat="server" Text="Bereken Finale" OnClick="Button2_Click" /><br />
+                        <asp:Label ID="finaleLbl" runat="server"></asp:Label>
+                        <br />
+                    <br />
+                        <asp:Label ID="finalelblTxtLand1" runat="server" Width="90px"></asp:Label>
+                        <asp:TextBox ID="finaletxtBoxScore1" runat="server"></asp:TextBox>
+                        <asp:Label ID="streep4" runat="server" Text="-"></asp:Label>
+                        <asp:TextBox ID="finaletxtBoxScore2" runat="server"></asp:TextBox>
+                        <asp:Label ID="finalelblTxtLand2" runat="server" Width="90px"></asp:Label>
+                        <asp:Button ID="berekenPouleFinale" runat="server" Text="Invoeren" OnClick="berekenPouleFinale_Click" />
+                        <br />
+                        <br />
+                        <asp:Label ID="FinaleTxt" runat="server"></asp:Label>
+                    </div>
+                    <div id="leegscore">
+                                            <h1 style="text-align: center">LEEG SCORES</h1>
+                        <br />
+                        <asp:Button ID="leegScore" runat="server" Text="LEEG SCORES" Width="600px" CausesValidation="False"
+onclientclick="return confirm('Weet u zeker dat u de scores wilt verwijderen?')" OnClick="leegScore_Click" />
+                                            <br />
+                                            <asp:Label ID="lblLeegScore" runat="server" Visible="False"></asp:Label>
+                    </div>
+                    <div id="winnaar" aria-autocomplete="none">
+                        <asp:Label ID="winnaarTekst" runat="server" CssClass="label_center"></asp:Label>
+                    </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
 
         </div>
         <div id="footer">
-            <p>Copyright © 2014 Sulayman Hatuluwaja | 70059 | I2C2 & Zowie van Geest | 64253 | I2C2 </p>
-        </div>
-    </div>
+            <p>Copyright © 2014 Sulayman Hatuluwaja | 70059 | I2C2 & Zowie van Geest | 64253 | I2C2     </p>        
+                </div>
     </form>
 </body>
 </html>

@@ -35,7 +35,9 @@
          </div>
         
         <div id="content">
-            <asp:Label ID="pouleGegevensA" runat="server" CssClass="speelschema" HorizontalAlign="center"></asp:Label>
+            <div id="poulgegevens">
+                <asp:Label ID="pouleGegevensA" runat="server" HorizontalAlign="center"></asp:Label>
+            </div>
         </div>
         <div id="footer">
             <p>Copyright © 2014 Sulayman Hatuluwaja | 70059 | I2C2 & Zowie van Geest | 64253 | I2C2 </p>

@@ -11,7 +11,7 @@ namespace tmtit_11
 {
     public partial class pouleinvullen : System.Web.UI.Page
     {
-        string bodyText = "";
+        string pouleA = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,13 +38,13 @@ namespace tmtit_11
 
             if (count > 0)
             {
-                bodyText += "<table border='1'>";
+                pouleA += "<table border='1'>";
 
-                bodyText += "<th width='25px'></th>";
-                bodyText += "<th width='85px' style='text-align:left; font-weight:bold'>Land</th>";
-                bodyText += "<th width='25px' style='text-align:center'></th>";
-                bodyText += "<th width='25px'></th>";
-                bodyText += "<th width='85px' style='text-align: left;font-weight:bold'>Land</th>";
+                pouleA += "<th width='25px'></th>";
+                pouleA += "<th width='85px' style='text-align:left; font-weight:bold'>Land</th>";
+                pouleA += "<th width='25px' style='text-align:center'></th>";
+                pouleA += "<th width='25px'></th>";
+                pouleA += "<th width='85px' style='text-align: left;font-weight:bold'>Land</th>";
                 for (int i = 0; i < count; i++)
                 {
 
@@ -56,16 +56,16 @@ namespace tmtit_11
 
                     if (i + 1 <= count)
                     {
-                        bodyText += "<tr>";
-                        bodyText += "<td width='25px'><img src='" + vlag + "' /></td>";
-                        bodyText += "<td width='85px'>" + teamnaam + "</td>";
-                        bodyText += "<form runat='server'>";
-                        bodyText += "<td width='30px'></td>";
-                        bodyText += "</form>";
-                        bodyText += "<td width='25px'> - </td>";
-                        bodyText += "<td width='25px'><img src='" + vlag2 + "' /></td>";
-                        bodyText += "<td width='85'px>" + teamnaam2 + "</td>";
-                        bodyText += "</tr>";
+                        pouleA += "<tr>";
+                        pouleA += "<td width='25px'><img src='" + vlag + "' /></td>";
+                        pouleA += "<td width='85px'>" + teamnaam + "</td>";
+                        pouleA += "<form runat='server'>";
+                        pouleA += "<td width='30px'></td>";
+                        pouleA += "</form>";
+                        pouleA += "<td width='25px'> - </td>";
+                        pouleA += "<td width='25px'><img src='" + vlag2 + "' /></td>";
+                        pouleA += "<td width='85'px>" + teamnaam2 + "</td>";
+                        pouleA += "</tr>";
 
                         for (int j = i + 1; j < count; j++)
                         {
@@ -73,17 +73,17 @@ namespace tmtit_11
                             string ss = dt.Rows[i]["Wedstrijd_ID"].ToString();
                             if (dt.Rows[j]["Wedstrijd_ID"].ToString() == dt.Rows[i]["Wedstrijd_ID"].ToString())
                             {
-                                bodyText += "<tr>";
-                                bodyText += "<td>" + dt.Rows[j]["Team_naam"].ToString() + "</td>";
-                                bodyText += "</tr>";
+                                pouleA += "<tr>";
+                                pouleA += "<td>" + dt.Rows[j]["Team_naam"].ToString() + "</td>";
+                                pouleA += "</tr>";
                                 i = i + 1;
                             }
                         }
                     }
                 }
 
-                bodyText += "</table>";
-                speelSchema.Text = bodyText;
+                pouleA += "</table>";
+                speelSchema.Text = pouleA;
 
             }
 

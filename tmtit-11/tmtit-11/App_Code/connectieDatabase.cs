@@ -42,6 +42,77 @@ namespace tmtit_11.App_Code
             return dt;
         }
 
+        public DataTable dataSelecteren2(string query)
+        {
+            DataTable dt2 = new DataTable();
+            try
+            {
+                dataAdapter1.SelectCommand.CommandText = query;
+                dataAdapter1.SelectCommand.Connection.Open();
+                dataAdapter1.SelectCommand.ExecuteScalar().ToString();
+                dataAdapter1.Fill(dt2);
+                dataAdapter1.SelectCommand.Connection.Close();
+                errorBericht = "";
+            }
+            catch (Exception error)
+            {
+                errorBericht = error.Message;
+                dataAdapter1.SelectCommand.Connection.Close();
+            }
+            finally
+            {
+                dataAdapter1.SelectCommand.Connection.Close();
+            }
+            return dt2;
+        }
+
+        public DataTable dataSelecteren3(string query)
+        {
+            DataTable dt3 = new DataTable();
+            try
+            {
+                dataAdapter1.SelectCommand.CommandText = query;
+                dataAdapter1.SelectCommand.Connection.Open();
+                dataAdapter1.SelectCommand.ExecuteScalar().ToString();
+                dataAdapter1.Fill(dt3);
+                dataAdapter1.SelectCommand.Connection.Close();
+                errorBericht = "";
+            }
+            catch (Exception error)
+            {
+                errorBericht = error.Message;
+                dataAdapter1.SelectCommand.Connection.Close();
+            }
+            finally
+            {
+                dataAdapter1.SelectCommand.Connection.Close();
+            }
+            return dt3;
+        }
+
+        public DataTable dataSelecteren4(string query)
+        {
+            DataTable dt4 = new DataTable();
+            try
+            {
+                dataAdapter1.SelectCommand.CommandText = query;
+                dataAdapter1.SelectCommand.Connection.Open();
+                dataAdapter1.SelectCommand.ExecuteScalar().ToString();
+                dataAdapter1.Fill(dt4);
+                dataAdapter1.SelectCommand.Connection.Close();
+                errorBericht = "";
+            }
+            catch (Exception error)
+            {
+                errorBericht = error.Message;
+                dataAdapter1.SelectCommand.Connection.Close();
+            }
+            finally
+            {
+                dataAdapter1.SelectCommand.Connection.Close();
+            }
+            return dt4;
+        }
         public int dataInvoegen(string query)
         {
             int resultaat = 0;
