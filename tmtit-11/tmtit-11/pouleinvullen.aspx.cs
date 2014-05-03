@@ -15,6 +15,10 @@ namespace tmtit_11
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!HttpContext.Current.Request.IsAuthenticated)
+            {
+                Response.Redirect("Login.aspx");
+            }
             connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
             DataTable dt = database.dataSelecteren("SELECT Wedstrijden.Wedstrijd_ID, Teams.Team_naam AS Team1, Teams_1.Team_naam AS Team2, Wedstrijden.doelpuntenteam1 AS Score1, Wedstrijden.doelpuntenteam2 AS Score2, Poule.Poule_naam AS Poulenaam FROM (Teams AS Teams_1 INNER JOIN (Teams INNER JOIN Wedstrijden ON Teams.Team_ID = Wedstrijden.Team1_ID) ON Teams_1.Team_ID = Wedstrijden.Team2_ID) INNER JOIN Poule ON Wedstrijden.Poule_ID = Poule.Poule_ID");
 

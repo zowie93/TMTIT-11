@@ -113,6 +113,64 @@ namespace tmtit_11.App_Code
             }
             return dt4;
         }
+
+        public DataTable dataSelecteren5(string query)
+        {
+            DataTable dt5 = new DataTable();
+            try
+            {
+                dataAdapter1.SelectCommand.CommandText = query;
+                dataAdapter1.SelectCommand.Connection.Open();
+                dataAdapter1.SelectCommand.ExecuteScalar().ToString();
+                dataAdapter1.Fill(dt5);
+                dataAdapter1.SelectCommand.Connection.Close();
+                errorBericht = "";
+            }
+            catch (Exception error)
+            {
+                errorBericht = error.Message;
+                dataAdapter1.SelectCommand.Connection.Close();
+            }
+            finally
+            {
+                dataAdapter1.SelectCommand.Connection.Close();
+            }
+            return dt5;
+        }
+
+        public DataTable dataSelecteren6(string query)
+        {
+            DataTable dt6 = new DataTable();
+            DataTable dt7 = new DataTable();
+            DataTable dt8 = new DataTable();
+            DataTable dt9 = new DataTable();
+            try
+            {
+                dataAdapter1.SelectCommand.CommandText = query;
+                dataAdapter1.SelectCommand.Connection.Open();
+                dataAdapter1.SelectCommand.ExecuteScalar().ToString();
+                dataAdapter1.Fill(dt6);
+                dataAdapter1.Fill(dt7);
+                dataAdapter1.Fill(dt8);
+                dataAdapter1.Fill(dt9);
+                dataAdapter1.SelectCommand.Connection.Close();
+                errorBericht = "";
+            }
+            catch (Exception error)
+            {
+                errorBericht = error.Message;
+                dataAdapter1.SelectCommand.Connection.Close();
+            }
+            finally
+            {
+                dataAdapter1.SelectCommand.Connection.Close();
+            }
+            return dt6;
+            return dt7;
+            return dt8;
+            return dt9;
+        }
+
         public int dataInvoegen(string query)
         {
             int resultaat = 0;

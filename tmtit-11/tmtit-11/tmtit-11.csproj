@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin.aspx" />
     <Content Include="adminMaken.aspx" />
     <Content Include="App_Data\tmtit11database.accdb" />
     <Content Include="App_Data\tmtit11database.mdb" />
@@ -100,15 +101,24 @@
     <Content Include="img\vlaggen\8.gif" />
     <Content Include="img\vlaggen\9.gif" />
     <Content Include="login.aspx" />
+    <Content Include="loguit.aspx" />
     <Content Include="menu_jquery.js" />
     <Content Include="poulegegevens.aspx" />
     <Content Include="pouleinvullen.aspx" />
     <Content Include="speelschema.aspx" />
     <Content Include="instructies.txt" />
     <Content Include="uitslagen.aspx" />
+    <Content Include="veranderwachtwoord.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="adminMaken.aspx.cs">
       <DependentUpon>adminMaken.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -118,6 +128,13 @@
     </Compile>
     <Compile Include="App_Code\connectieDatabase.cs" />
     <Compile Include="App_Code\connectieDatabaseLos.cs" />
+    <Compile Include="loguit.aspx.cs">
+      <DependentUpon>loguit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loguit.aspx.designer.cs">
+      <DependentUpon>loguit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="uitslagen.aspx.cs">
       <DependentUpon>uitslagen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -172,6 +189,13 @@
     </Compile>
     <Compile Include="speelschema.aspx.designer.cs">
       <DependentUpon>speelschema.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="veranderwachtwoord.aspx.cs">
+      <DependentUpon>veranderwachtwoord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="veranderwachtwoord.aspx.designer.cs">
+      <DependentUpon>veranderwachtwoord.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

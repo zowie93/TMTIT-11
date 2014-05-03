@@ -257,6 +257,201 @@ table {
     padding: 10px;
 }
 
+#pouleAtitel {
+    width: 600px;
+    height: 50px;
+    background-color: #4a4a4a;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+}
+
+#pouleAtxt {
+    width: 500px;
+    height: 100px;
+    padding-top: 0px;
+    padding-left: 90px;
+}
+
+#pouleA {
+    width: 600px;
+    height: 250px;
+    margin: 20px;
+    background-color: #FFFFFF;
+}
+
+#pouleBtitel {
+    width: 600px;
+    height: 50px;
+    background-color: #4a4a4a;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+}
+#pouleBtxt {
+    width: 500px;
+    height: 100px;
+    padding-top: 0px;
+    padding-left: 90px;
+}
+
+#pouleB {
+    width: 600px;
+    height: 250px;
+    margin: 20px;
+    background-color: #FFFFFF;
+}
+
+#pouleCtitel {
+    width: 600px;
+    height: 50px;
+    background-color: #4a4a4a;    
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+}
+#pouleCtxt {
+    width: 500px;
+    height: 100px;
+    padding-top: 0px;
+    padding-left: 90px;
+}
+#pouleC {
+    width: 600px;
+    height: 250px;
+    margin: 20px;
+    background-color: #FFFFFF;
+}
+
+#pouleDtitel {
+    width: 600px;
+    height: 50px;
+    background-color: #4a4a4a;    
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+}
+#pouleDtxt {
+    width: 500px;
+    height: 100px;
+    padding-top: 0px;
+    padding-left: 90px;
+}
+#pouleD {
+    width: 600px;
+    height: 250px;
+    margin: 20px;
+    background-color: #FFFFFF;
+}
+
+/* KWART POULE A */
+#kwartpouleAtitel {
+    width: 600px;
+    height: 50px;
+    background-color: #4a4a4a;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+}
+
+#kwartpouleAtxt {
+    width: 500px;
+    height: 100px;
+    padding-top: -20px;
+    margin-top: -20px;
+    padding-left: 150px;
+}
+
+#kwartpouleA {
+    width: 600px;
+    height: 130px;
+    margin:20px;
+    background-color: #FFFFFF;
+}
+
+/* KWART POULE B */
+#kwartpouleBtitel {
+    width: 600px;
+    height: 50px;
+    background-color: #4a4a4a;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+}
+
+#kwartpouleBtxt {
+    width: 500px;
+    height: 100px;
+    padding-top: -20px;
+    margin-top: -20px;
+    padding-left: 150px;
+}
+
+#kwartpouleB {
+    width: 600px;
+    height: 130px;
+    margin:20px;
+    background-color: #FFFFFF;
+}
+
+/* KWART POULE C */
+#kwartpouleCtitel {
+    width: 600px;
+    height: 50px;
+    background-color: #4a4a4a;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+}
+
+#kwartpouleCtxt {
+    width: 500px;
+    height: 100px;
+    padding-top: -20px;
+    margin-top: -20px;
+    padding-left: 150px;
+}
+
+#kwartpouleC {
+    width: 600px;
+    height: 130px;
+    margin:20px;
+    background-color: #FFFFFF;
+}
+
+/* KWART POULE D */
+#kwartpouleDtitel {
+    width: 600px;
+    height: 50px;
+    background-color: #4a4a4a;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+}
+
+#kwartpouleDtxt {
+    width: 500px;
+    height: 100px;
+    padding-top: -20px;
+    margin-top: -20px;
+    padding-left: 150px;
+}
+
+#kwartpouleD {
+    width: 600px;
+    height: 130px;
+    margin:20px;
+    background-color: #FFFFFF;
+}
+
 
 #winnaar {
     width: 600px;
@@ -328,4 +523,16 @@ h1 {
 /* Middel-TXT */
 .textalignmidden {
     text-align: center;
+}
+
+/* Button */
+.centerbutton {
+    display: block;
+    margin : 0 auto;
+}
+
+/* PouleATXT */
+.pouleTXT {
+    font-size: 24px;
+    font-weight: 700;
 }

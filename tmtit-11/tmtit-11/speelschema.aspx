@@ -19,15 +19,25 @@
         <div id="navigatie_css">
             <div id='cssmenu'>
                 <ul>
-                   <li class='has-sub'><a href='default.aspx'><span>Home</span></a></li>
+                   <li class='has-sub' style='background: #4a4a4a;'><a href='default.aspx'><span>Home</span></a></li>
                    <li class='has-sub'><a href='poulegegevens.aspx'><span>poulegegevens</span></a>
                       <ul>
                          <li><a href='pouleinvullen.aspx'><span>poule invullen</span></a></li>
                       </ul>
                    </li>
-                   <li class='has-sub active'><a href='speelschema.aspx'><span>speelschema</span></a></li>
-                   <li class='has-sub'><a href='uitslagen.aspx'><span>uitslagen</span></a></li>
+                   <li class='has-sub active'><a href='speelschema.aspx'><span>speelschema</span></a>
+                   </li>
+                   <li class='has-sub'><a href='admin.aspx'><span>Admin</span></a>
+                        <ul>
+                            <li><a href='veranderwachtwoord.aspx'><span>Verander Wachtwoord</span></a></li>
+                            <li><a href="adminMaken.aspx"><span>Nieuwe Admin</span></a></li>
+                        </ul>
+                   </li>
+                   <% if(Session["gebruiker"] == null) { %>
                    <li class='has-sub last'><a href='login.aspx'><span>login</span></a></li>
+                    <% } else { %>
+                    <li class='has-sub last'><a href='loguit.aspx'><span>loguit</span></a></li>
+                    <% } %>
                 </ul>
             </div>
          </div>

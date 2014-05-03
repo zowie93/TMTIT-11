@@ -18,18 +18,27 @@
             </div>
         </div>
         <div id="navigatie_css">
-             <div id='cssmenu'>
+            <div id='cssmenu'>
                 <ul>
                    <li class='has-sub' style='background: #4a4a4a;'><a href='default.aspx'><span>Home</span></a></li>
                    <li class='has-sub active'><a href='poulegegevens.aspx'><span>poulegegevens</span></a>
                       <ul>
-                         <li class='active'><a href='pouleinvullen.aspx'><span>poule invullen</span></a></li>
+                         <li><a href='pouleinvullen.aspx'><span>poule invullen</span></a></li>
                       </ul>
                    </li>
                    <li class='has-sub'><a href='speelschema.aspx'><span>speelschema</span></a>
                    </li>
-                   <li class='has-sub'><a href='uitslagen.aspx'><span>uitslagen</span></a></li>
+                   <li class='has-sub'><a href='admin.aspx'><span>Admin</span></a>
+                        <ul>
+                            <li><a href='veranderwachtwoord.aspx'><span>Verander Wachtwoord</span></a></li>
+                            <li><a href="adminMaken.aspx"><span>Nieuwe Admin</span></a></li>
+                        </ul>
+                   </li>
+                   <% if(Session["gebruiker"] == null) { %>
                    <li class='has-sub last'><a href='login.aspx'><span>login</span></a></li>
+                    <% } else { %>
+                    <li class='has-sub last'><a href='loguit.aspx'><span>loguit</span></a></li>
+                    <% } %>
                 </ul>
             </div>
          </div>
@@ -38,6 +47,40 @@
             <div id="poulgegevens">
                 <asp:Label ID="pouleGegevensA" runat="server" HorizontalAlign="center"></asp:Label>
             </div>
+            <h1 style="text-align:center; font-size: 20px; margin-top: 30px;">Punten + standen Poules</h1>
+            <table>
+                <tr>
+                    <td><div id="pouleA"><div id="pouleAtitel">SCORES POULE A</div>
+                        <div id="pouleAtxt"><asp:Label ID="pouleATXT" runat="server" Text="Label" CssClass="pouleTXT" HorizontalAlign="center"></asp:Label></div></div></td>
+                    <td><div id="pouleB"><div id="pouleBtitel">SCORES POULE B</div>
+                        <div id="pouleBtxt"><asp:Label ID="pouleBTXT" runat="server" Text="Label" CssClass="pouleTXT" HorizontalAlign="center"></asp:Label></div></div></td>
+                </tr>
+                <tr>
+                    <td><div id="pouleC"><div id="pouleCtitel">SCORES POULE C</div>
+                        <div id="pouleCtxt"><asp:Label ID="pouleCTXT" runat="server" Text="Label" CssClass="pouleTXT" HorizontalAlign="center"></asp:Label></div></div></td>
+                    <td><div id="pouleD"><div id="pouleDtitel">SCORES POULE D</div>
+                        <div id="pouleDtxt"><asp:Label ID="pouleDTXT" runat="server" Text="Label" CssClass="pouleTXT" HorizontalAlign="center"></asp:Label></div></div></td>
+                </tr>
+            </table>
+            <h1 style="text-align:center; font-size: 20px; margin-top: 30px;">KWARTFINALES</h1>
+                        <table>
+                <tr>
+                    <td><div id="kwartpouleA"><div id="kwartpouleAtitel">KWARTFINALE POULE A</div>
+                        <div id="kwartpouleAtxt"><asp:Label ID="kwartpouleATXT" runat="server" Text="Label" CssClass="pouleTXT" HorizontalAlign="center"></asp:Label></div></div></td>
+                    <td><div id="kwartpouleB"><div id="kwartpouleBtitel">KWARTFINALE POULE A</div>
+                        <div id="kwartpouleBtxt"><asp:Label ID="kwartpouleBTXT" runat="server" Text="Label" CssClass="pouleTXT" HorizontalAlign="center"></asp:Label></div></div></td>
+                </tr>
+                <tr>
+                    <td><div id="kwartpouleC"><div id="kwartpouleCtitel">KWARTFINALE POULE A</div>
+                        <div id="kwartpouleCtxt"><asp:Label ID="kwartpouleCTXT" runat="server" Text="Label" CssClass="pouleTXT" HorizontalAlign="center"></asp:Label></div></div></td>
+                    <td><div id="kwartpouleD"><div id="kwartpouleDtitel">KWARTFINALE POULE A</div>
+                        <div id="kwartpouleDtxt"><asp:Label ID="kwartpouleDTXT" runat="server" Text="Label" CssClass="pouleTXT" HorizontalAlign="center"></asp:Label></div></div></td>
+                </tr>
+            </table>
+            
+            
+            
+            
         </div>
         <div id="footer">
             <p>Copyright © 2014 Sulayman Hatuluwaja | 70059 | I2C2 & Zowie van Geest | 64253 | I2C2 </p>

@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="tmtit_11.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="veranderwachtwoord.aspx.cs" Inherits="tmtit_11.veranderwachtwoord" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>WK 2014 - TMTIT-11 - Login </title>
+<head id="Head1" runat="server">
+    <title>WK 2014 - TMTIT-11 - Verander Wachtwoord </title>
     <link href="css/style.css" rel="stylesheet" />    
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
 	<script type='text/javascript' src='menu_jquery.js'></script>
@@ -27,16 +27,16 @@
                    </li>
                    <li class='has-sub'><a href='speelschema.aspx'><span>speelschema</span></a>
                    </li>
-                   <li class='has-sub'><a href='admin.aspx'><span>Admin</span></a>
+                   <li class='has-sub active'><a href='admin.aspx'><span>Admin</span></a>
                         <ul>
                             <li><a href='veranderwachtwoord.aspx'><span>Verander Wachtwoord</span></a></li>
                             <li><a href="adminMaken.aspx"><span>Nieuwe Admin</span></a></li>
                         </ul>
                    </li>
                    <% if(Session["gebruiker"] == null) { %>
-                   <li class='has-sub active last'><a href='login.aspx'><span>login</span></a></li>
+                   <li class='has-sub last'><a href='login.aspx'><span>login</span></a></li>
                     <% } else { %>
-                    <li class='has-sub active last'><a href='loguit.aspx'><span>loguit</span></a></li>
+                    <li class='has-sub last'><a href='loguit.aspx'><span>loguit</span></a></li>
                     <% } %>
                 </ul>
             </div>
@@ -51,19 +51,30 @@
                 <asp:TableCell><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="gebruikerVeld" Text="Vul uw gebruikersnaam in!"></asp:RequiredFieldValidator></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
-                <asp:TableCell>Wachtwoord:</asp:TableCell>
-                <asp:TableCell><asp:TextBox ID="wachtwoordVeld" runat="server" TextMode="password"></asp:TextBox></asp:TableCell>
-                <asp:TableCell><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="wachtwoordVeld" Text="vul uw wachtwoord in!"></asp:RequiredFieldValidator></asp:TableCell>
+                <asp:TableCell>Oud Wachtwoord:</asp:TableCell>
+                <asp:TableCell><asp:TextBox ID="oudwachtwoordVeld" runat="server" TextMode="password"></asp:TextBox></asp:TableCell>
+                <asp:TableCell><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="oudwachtwoordVeld" Text="vul uw oude wachtwoord in!"></asp:RequiredFieldValidator></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>Nieuw Wachtwoord:</asp:TableCell>
+                <asp:TableCell><asp:TextBox ID="nieuwWachtwoord" runat="server" TextMode="password"></asp:TextBox></asp:TableCell>
+                <asp:TableCell><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="nieuwWachtwoord" Text="vul uw nieuwe wachtwoord in!"></asp:RequiredFieldValidator></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>Nieuw Wachtwoord Herhaling:</asp:TableCell>
+                <asp:TableCell><asp:TextBox ID="nieuwWachtwoordHer" runat="server" TextMode="password"></asp:TextBox></asp:TableCell>
+                <asp:TableCell><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="nieuwWachtwoordHer" Text="vul uw nieuwe wachtwoord in!"></asp:RequiredFieldValidator></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>&nbsp;</asp:TableCell>
-                <asp:TableCell><asp:Button ID="bnLogin" runat="server" Text="Login" OnClick="bnLogin_Click" /></asp:TableCell>
+                <asp:TableCell><asp:Button ID="bnVerander" runat="server" Text="Verander Wachtwoord" OnClick="bnVerander_Click"/></asp:TableCell>
             </asp:TableRow>
         </asp:Table>
             <asp:Label ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
                     </form>
             </div>
         </div>
+        
         <div id="footer">
             <p>Copyright © 2014 Sulayman Hatuluwaja | 70059 | I2C2 & Zowie van Geest | 64253 | I2C2 </p>
         </div>
