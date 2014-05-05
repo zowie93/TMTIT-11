@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="admin.aspx">
+      <publishTime>05/04/2014 19:59:51</publishTime>
+    </File>
+    <File Include="adminMaken.aspx">
+      <publishTime>05/04/2014 20:05:53</publishTime>
+    </File>
+    <File Include="App_Data/tmtit11database.accdb">
+      <publishTime>05/03/2014 13:26:42</publishTime>
+    </File>
+    <File Include="App_Data/tmtit11database.mdb">
+      <publishTime>05/04/2014 20:10:21</publishTime>
+    </File>
+    <File Include="bin/tmtit-11.dll">
+      <publishTime>05/04/2014 21:01:46</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>05/04/2014 19:55:42</publishTime>
+    </File>
+    <File Include="Default.aspx">
+      <publishTime>05/04/2014 19:59:43</publishTime>
+    </File>
+    <File Include="img/128-144.jpg">
+      <publishTime>05/04/2014 19:49:56</publishTime>
+    </File>
+    <File Include="img/bggrass.png">
+      <publishTime>05/04/2014 19:55:23</publishTime>
+    </File>
+    <File Include="img/caret.png">
+      <publishTime>05/03/2014 13:26:43</publishTime>
+    </File>
+    <File Include="img/header.png">
+      <publishTime>05/03/2014 13:26:42</publishTime>
+    </File>
+    <File Include="img/logo.png">
+      <publishTime>05/03/2014 13:26:42</publishTime>
+    </File>
+    <File Include="img/menu.png">
+      <publishTime>05/03/2014 13:26:42</publishTime>
+    </File>
+    <File Include="img/vlaggen/1.gif">
+      <publishTime>05/03/2014 13:26:47</publishTime>
+    </File>
+    <File Include="img/vlaggen/10.gif">
+      <publishTime>05/03/2014 13:26:47</publishTime>
+    </File>
+    <File Include="img/vlaggen/11.gif">
+      <publishTime>05/03/2014 13:26:47</publishTime>
+    </File>
+    <File Include="img/vlaggen/12.gif">
+      <publishTime>05/03/2014 13:26:47</publishTime>
+    </File>
+    <File Include="img/vlaggen/13.gif">
+      <publishTime>05/03/2014 13:26:47</publishTime>
+    </File>
+    <File Include="img/vlaggen/14.gif">
+      <publishTime>05/03/2014 13:26:47</publishTime>
+    </File>
+    <File Include="img/vlaggen/15.gif">
+      <publishTime>05/03/2014 13:26:46</publishTime>
+    </File>
+    <File Include="img/vlaggen/16.gif">
+      <publishTime>05/03/2014 13:26:46</publishTime>
+    </File>
+    <File Include="img/vlaggen/17.gif">
+      <publishTime>05/03/2014 13:26:46</publishTime>
+    </File>
+    <File Include="img/vlaggen/19.gif">
+      <publishTime>05/03/2014 13:26:46</publishTime>
+    </File>
+    <File Include="img/vlaggen/20.gif">
+      <publishTime>05/03/2014 13:26:46</publishTime>
+    </File>
+    <File Include="img/vlaggen/21.gif">
+      <publishTime>05/03/2014 13:26:46</publishTime>
+    </File>
+    <File Include="img/vlaggen/22.gif">
+      <publishTime>05/03/2014 13:26:46</publishTime>
+    </File>
+    <File Include="img/vlaggen/23.gif">
+      <publishTime>05/03/2014 13:26:45</publishTime>
+    </File>
+    <File Include="img/vlaggen/24.gif">
+      <publishTime>05/03/2014 13:26:45</publishTime>
+    </File>
+    <File Include="img/vlaggen/25.gif">
+      <publishTime>05/03/2014 13:26:45</publishTime>
+    </File>
+    <File Include="img/vlaggen/26.gif">
+      <publishTime>05/03/2014 13:26:45</publishTime>
+    </File>
+    <File Include="img/vlaggen/27.gif">
+      <publishTime>05/03/2014 13:26:45</publishTime>
+    </File>
+    <File Include="img/vlaggen/28.gif">
+      <publishTime>05/03/2014 13:26:45</publishTime>
+    </File>
+    <File Include="img/vlaggen/29.gif">
+      <publishTime>05/03/2014 13:26:45</publishTime>
+    </File>
+    <File Include="img/vlaggen/3.gif">
+      <publishTime>05/03/2014 13:26:45</publishTime>
+    </File>
+    <File Include="img/vlaggen/30.gif">
+      <publishTime>05/03/2014 13:26:44</publishTime>
+    </File>
+    <File Include="img/vlaggen/31.gif">
+      <publishTime>05/03/2014 13:26:44</publishTime>
+    </File>
+    <File Include="img/vlaggen/32.gif">
+      <publishTime>05/03/2014 13:26:44</publishTime>
+    </File>
+    <File Include="img/vlaggen/33.gif">
+      <publishTime>05/03/2014 13:26:44</publishTime>
+    </File>
+    <File Include="img/vlaggen/34.gif">
+      <publishTime>05/03/2014 13:26:44</publishTime>
+    </File>
+    <File Include="img/vlaggen/35.gif">
+      <publishTime>05/03/2014 13:26:44</publishTime>
+    </File>
+    <File Include="img/vlaggen/5.gif">
+      <publishTime>05/03/2014 13:26:43</publishTime>
+    </File>
+    <File Include="img/vlaggen/6.gif">
+      <publishTime>05/03/2014 13:26:43</publishTime>
+    </File>
+    <File Include="img/vlaggen/7.gif">
+      <publishTime>05/03/2014 13:26:43</publishTime>
+    </File>
+    <File Include="img/vlaggen/8.gif">
+      <publishTime>05/03/2014 13:26:43</publishTime>
+    </File>
+    <File Include="img/vlaggen/9.gif">
+      <publishTime>05/03/2014 13:26:43</publishTime>
+    </File>
+    <File Include="login.aspx">
+      <publishTime>05/04/2014 19:59:39</publishTime>
+    </File>
+    <File Include="loguit.aspx">
+      <publishTime>05/03/2014 14:09:40</publishTime>
+    </File>
+    <File Include="MasterPage.master">
+      <publishTime>05/03/2014 13:26:40</publishTime>
+    </File>
+    <File Include="menu_jquery.js">
+      <publishTime>05/03/2014 13:26:40</publishTime>
+    </File>
+    <File Include="poulegegevens.aspx">
+      <publishTime>05/04/2014 19:59:35</publishTime>
+    </File>
+    <File Include="pouleinvullen.aspx">
+      <publishTime>05/04/2014 19:59:31</publishTime>
+    </File>
+    <File Include="scoretabel.aspx">
+      <publishTime>05/04/2014 19:28:48</publishTime>
+    </File>
+    <File Include="speelschema.aspx">
+      <publishTime>05/04/2014 19:59:25</publishTime>
+    </File>
+    <File Include="veranderwachtwoord.aspx">
+      <publishTime>05/04/2014 19:59:15</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/04/2014 21:06:29</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

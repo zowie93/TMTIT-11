@@ -52,7 +52,7 @@ namespace tmtit_11
             String opgeslagensalt = "";
             String opgeslagenID = "";
 
-            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt = database.dataSelecteren("select * from Admin where Gebruikersnaam = '" + naam + "'");
             if (dt.Rows.Count > 0)
             {

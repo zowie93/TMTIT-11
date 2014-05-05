@@ -12,12 +12,10 @@ namespace tmtit_11
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*
             if (!HttpContext.Current.Request.IsAuthenticated)
             {
                 Response.Redirect("Login.aspx");
             }
-             */
         }
 
         public String HashPassword(String password, String salt)
@@ -64,6 +62,11 @@ namespace tmtit_11
                 databaseLos.databaseOpen(connectieLos);
                 resultaat.ExecuteNonQuery();
                 databaseLos.databaseClose(connectieLos);
+                activatie.Text = "De Admin is aangemaakt!";
+            }
+            else
+            {
+                activatie.Text = "Helaas er is een fout opgetreden probeer het opnieuw!";
             }
             
             

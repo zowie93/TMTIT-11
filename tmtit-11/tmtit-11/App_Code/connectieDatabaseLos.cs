@@ -11,7 +11,7 @@ namespace tmtit_11.App_Code
     {
         public OleDbConnection connectieDatabaseLosFunc()
         {
-            String connectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb";
+            String connectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb");
 
             OleDbConnection connectieLos = new OleDbConnection(connectionString);
 

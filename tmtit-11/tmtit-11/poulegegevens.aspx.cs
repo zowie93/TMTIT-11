@@ -22,9 +22,15 @@ namespace tmtit_11
         string kwartpouleC = "";
         string kwartpouleD = "";
 
+        string halvepouleAB = "";
+        string halvepouleCD = "";
+
+        string finalepoule = "";
+        string winnaarpoule = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt = database.dataSelecteren("SELECT Poule.Poule_ID, Poule.Poule_naam, Teams.Team_naam, Teams_1.Team_naam, Teams_2.Team_naam, Teams_3.Team_naam, Teams.Vlag, Teams_1.Vlag, Teams_2.Vlag, Teams_3.Vlag FROM Teams AS Teams_3 INNER JOIN (Teams AS Teams_2 INNER JOIN (Teams AS Teams_1 INNER JOIN (Teams INNER JOIN Poule ON Teams.Team_ID = Poule.Team1_ID) ON Teams_1.Team_ID = Poule.Team2_ID) ON Teams_2.Team_ID = Poule.Team3_ID) ON Teams_3.Team_ID = Poule.Team4_ID");
 
             string pouleID = "";
@@ -44,7 +50,6 @@ namespace tmtit_11
             if (count > 0)
             {
                 poulesVerdeling += "<table border='1'>";
-                poulesVerdeling += "<th width='20px' height='30px' style='font-weight:bold' colspan='9'><h2>Poules</h2></th>";
                 for (int i = 0; i < count; i++)
                 {
                     pouleID = dt.Rows[i]["Poule_ID"].ToString();
@@ -63,15 +68,15 @@ namespace tmtit_11
                     if (i + 1 <= count)
                     {
                         poulesVerdeling += "<tr>";
-                        poulesVerdeling += "<td width='100px'>" + pouleNaam + "</td>";
+                        poulesVerdeling += "<td width='120px'>" + pouleNaam + "</td>";
                         poulesVerdeling += "<td width='25px'><img src='" + vlagteam1 + "' /></td>";
-                        poulesVerdeling += "<td width='100px'>" + team1 + "</td>";
+                        poulesVerdeling += "<td width='120px'>" + team1 + "</td>";
                         poulesVerdeling += "<td width='25px'><img src='" + vlagteam2 + "' /></td>";
-                        poulesVerdeling += "<td width='100px'>" + team2 + "</td>";
+                        poulesVerdeling += "<td width='145px'>" + team2 + "</td>";
                         poulesVerdeling += "<td width='25px'><img src='" + vlagteam3 + "' /></td>";
-                        poulesVerdeling += "<td width='100px'>" + team3 + "</td>";
+                        poulesVerdeling += "<td width='120px'>" + team3 + "</td>";
                         poulesVerdeling += "<td width='25px'><img src='" + vlagteam4 + "' /></td>";
-                        poulesVerdeling += "<td width='100px'>" + team4 + "</td>";
+                        poulesVerdeling += "<td width='120px'>" + team4 + "</td>";
                         poulesVerdeling += "</tr>";
 
                         for (int j = i + 1; j < count; j++)
@@ -99,7 +104,7 @@ namespace tmtit_11
                 Response.Write(count);
             }
 
-            connectieDatabase database2 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database2 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt2 = database2.dataSelecteren("SELECT Wedstrijden.Wedstrijd_ID, Teams.Team_naam AS Team1, Teams_1.Team_naam AS Team2, Wedstrijden.doelpuntenteam1 AS Score1, Wedstrijden.doelpuntenteam2 AS Score2, Poule.Poule_naam AS Poulenaam, Teams.Vlag, Teams_1.Vlag FROM (Teams AS Teams_1 INNER JOIN (Teams INNER JOIN Wedstrijden ON Teams.Team_ID = Wedstrijden.Team1_ID) ON Teams_1.Team_ID = Wedstrijden.Team2_ID) INNER JOIN Poule ON Wedstrijden.Poule_ID = Poule.Poule_ID WHERE Wedstrijden.Poule_ID=1;");
 
             string teamnaam_1 = "";
@@ -110,7 +115,6 @@ namespace tmtit_11
             string score2_1 = "";
 
             int count2 = dt2.Rows.Count;
-            Response.Write(count2);
 
             if (count2 > 0)
             {
@@ -152,7 +156,7 @@ namespace tmtit_11
                 Response.Write(count);
             }
 
-            connectieDatabase database3 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database3 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt3 = database3.dataSelecteren("SELECT Wedstrijden.Wedstrijd_ID, Teams.Team_naam AS Team1, Teams_1.Team_naam AS Team2, Wedstrijden.doelpuntenteam1 AS Score1, Wedstrijden.doelpuntenteam2 AS Score2, Poule.Poule_naam AS Poulenaam, Teams.Vlag, Teams_1.Vlag FROM (Teams AS Teams_1 INNER JOIN (Teams INNER JOIN Wedstrijden ON Teams.Team_ID = Wedstrijden.Team1_ID) ON Teams_1.Team_ID = Wedstrijden.Team2_ID) INNER JOIN Poule ON Wedstrijden.Poule_ID = Poule.Poule_ID WHERE Wedstrijden.Poule_ID=2;");
 
             string teamnaam_2 = "";
@@ -163,7 +167,6 @@ namespace tmtit_11
             string score2_2 = "";
 
             int count3 = dt3.Rows.Count;
-            Response.Write(count3);
 
             if (count3 > 0)
             {
@@ -205,7 +208,7 @@ namespace tmtit_11
                 Response.Write(count);
             }
 
-            connectieDatabase database4 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database4 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt4 = database4.dataSelecteren("SELECT Wedstrijden.Wedstrijd_ID, Teams.Team_naam AS Team1, Teams_1.Team_naam AS Team2, Wedstrijden.doelpuntenteam1 AS Score1, Wedstrijden.doelpuntenteam2 AS Score2, Poule.Poule_naam AS Poulenaam, Teams.Vlag, Teams_1.Vlag FROM (Teams AS Teams_1 INNER JOIN (Teams INNER JOIN Wedstrijden ON Teams.Team_ID = Wedstrijden.Team1_ID) ON Teams_1.Team_ID = Wedstrijden.Team2_ID) INNER JOIN Poule ON Wedstrijden.Poule_ID = Poule.Poule_ID WHERE Wedstrijden.Poule_ID=3;");
 
             string teamnaam_3 = "";
@@ -216,7 +219,6 @@ namespace tmtit_11
             string score2_3 = "";
 
             int count4 = dt4.Rows.Count;
-            Response.Write(count4);
 
             if (count4 > 0)
             {
@@ -258,7 +260,7 @@ namespace tmtit_11
                 Response.Write(count);
             }
 
-            connectieDatabase database5 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database5 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt5 = database5.dataSelecteren("SELECT Wedstrijden.Wedstrijd_ID, Teams.Team_naam AS Team1, Teams_1.Team_naam AS Team2, Wedstrijden.doelpuntenteam1 AS Score1, Wedstrijden.doelpuntenteam2 AS Score2, Poule.Poule_naam AS Poulenaam, Teams.Vlag, Teams_1.Vlag FROM (Teams AS Teams_1 INNER JOIN (Teams INNER JOIN Wedstrijden ON Teams.Team_ID = Wedstrijden.Team1_ID) ON Teams_1.Team_ID = Wedstrijden.Team2_ID) INNER JOIN Poule ON Wedstrijden.Poule_ID = Poule.Poule_ID WHERE Wedstrijden.Poule_ID=4;");
 
             string teamnaam_4 = "";
@@ -269,7 +271,6 @@ namespace tmtit_11
             string score2_4 = "";
 
             int count5 = dt5.Rows.Count;
-            Response.Write(count5);
 
             if (count5 > 0)
             {
@@ -311,13 +312,12 @@ namespace tmtit_11
                 Response.Write(count);
             }
 
-            connectieDatabase database6 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database6 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt6 = database6.dataSelecteren("SELECT TOP 2 Teams.Team_naam AS Team1, Teams.Team_ID AS Team2, Teams.Winst AS Winst, Teams.Vlag AS Vlag FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE (((Teams.Poule_ID)=1)) ORDER BY Teams.Winst DESC;");
 
             string kwartvlag = "";
             string team1_1 = "";
             string winst = "";
-
 
             int count6 = dt6.Rows.Count;
 
@@ -352,13 +352,12 @@ namespace tmtit_11
                 Response.Write(count);
             }
 
-            connectieDatabase database7 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database7 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt7 = database7.dataSelecteren("SELECT TOP 2 Teams.Team_naam AS Team1, Teams.Team_ID AS Team2, Teams.Winst AS Winst, Teams.Vlag AS Vlag FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE (((Teams.Poule_ID)=2)) ORDER BY Teams.Winst DESC;");
 
             string kwartvlag2 = "";
             string team1_2 = "";
             string winst2 = "";
-
 
             int count7 = dt7.Rows.Count;
 
@@ -393,13 +392,12 @@ namespace tmtit_11
                 Response.Write(count);
             }
 
-            connectieDatabase database8 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database8 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt8 = database8.dataSelecteren("SELECT TOP 2 Teams.Team_naam AS Team1, Teams.Team_ID AS Team2, Teams.Winst AS Winst, Teams.Vlag AS Vlag FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE (((Teams.Poule_ID)=3)) ORDER BY Teams.Winst DESC;");
 
             string kwartvlag3 = "";
             string team1_3 = "";
             string winst3 = "";
-
 
             int count8 = dt8.Rows.Count;
 
@@ -434,13 +432,12 @@ namespace tmtit_11
                 Response.Write(count);
             }
 
-            connectieDatabase database9 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database9 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt9 = database9.dataSelecteren("SELECT TOP 2 Teams.Team_naam AS Team1, Teams.Team_ID AS Team2, Teams.Winst AS Winst, Teams.Vlag AS Vlag FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE (((Teams.Poule_ID)=4)) ORDER BY Teams.Winst DESC;");
 
             string kwartvlag4 = "";
             string team1_4 = "";
             string winst4 = "";
-
 
             int count9 = dt9.Rows.Count;
 
@@ -468,6 +465,162 @@ namespace tmtit_11
 
                 kwartpouleD += "</table>";
                 kwartpouleDTXT.Text = kwartpouleD;
+
+            }
+            else
+            {
+                Response.Write(count);
+            }
+
+            connectieDatabase database10 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
+            DataTable dt10 = database10.dataSelecteren("SELECT TOP 2 Teams.Team_naam AS Team1, Teams.Team_ID AS Team2, Teams.Winst AS Winst, Teams.Vlag AS Vlag FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE Teams.Poule_ID BETWEEN 1 AND 2 ORDER BY Teams.Winst DESC;");
+
+            string halvevlag1 = "";
+            string halveteam1 = "";
+            string winsthalvefinale1 = "";
+
+            int count10 = dt10.Rows.Count;
+
+            if (count10 > 0)
+            {
+                halvepouleAB += "<table border='1'>";
+                halvepouleAB += "<th width='40px'></th>";
+                halvepouleAB += "<th width='175px'></th>";
+                halvepouleAB += "<th width='50px'>Winst</th>";
+                for (int i = 0; i < count10; i++)
+                {
+                    halvevlag1 = dt10.Rows[i]["Vlag"].ToString();
+                    halveteam1 = dt10.Rows[i]["Team1"].ToString();
+                    winsthalvefinale1 = dt10.Rows[i]["Winst"].ToString();
+
+                    if (i + 1 <= 2)
+                    {
+                        halvepouleAB += "<tr>";
+                        halvepouleAB += "<td width='40px'><img src='" + halvevlag1 + "' /></td>";
+                        halvepouleAB += "<td width='175px' height='25px'>" + halveteam1 + "</td>";
+                        halvepouleAB += "<td width='50px' style='text-align: center'>" + winsthalvefinale1 + "</td>";
+                        halvepouleAB += "</tr>";
+                    }
+                }
+
+                halvepouleAB += "</table>";
+                halvefinaleABTXT.Text = halvepouleAB;
+
+            }
+            else
+            {
+                Response.Write(count);
+            }
+
+            connectieDatabase database11 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
+            DataTable dt11 = database11.dataSelecteren("SELECT TOP 2 Teams.Team_naam AS Team1, Teams.Team_ID AS Team2, Teams.Winst AS Winst, Teams.Vlag AS Vlag FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE Teams.Poule_ID BETWEEN 3 AND 4 ORDER BY Teams.Winst DESC;");
+
+            string halvevlag2 = "";
+            string halveteam2 = "";
+            string winsthalvefinale2 = "";
+
+            int count11 = dt11.Rows.Count;
+
+            if (count11 > 0)
+            {
+                halvepouleCD += "<table border='1'>";
+                halvepouleCD += "<th width='40px'></th>";
+                halvepouleCD += "<th width='175px'></th>";
+                halvepouleCD += "<th width='50px'>Winst</th>";
+                for (int i = 0; i < count11; i++)
+                {
+                    halvevlag2 = dt11.Rows[i]["Vlag"].ToString();
+                    halveteam2 = dt11.Rows[i]["Team1"].ToString();
+                    winsthalvefinale2 = dt11.Rows[i]["Winst"].ToString();
+
+                    if (i + 1 <= 2)
+                    {
+                        halvepouleCD += "<tr>";
+                        halvepouleCD += "<td width='40px'><img src='" + halvevlag2 + "' /></td>";
+                        halvepouleCD += "<td width='175px' height='25px'>" + halveteam2 + "</td>";
+                        halvepouleCD += "<td width='50px' style='text-align: center'>" + winsthalvefinale2 + "</td>";
+                        halvepouleCD += "</tr>";
+                    }
+                }
+
+                halvepouleCD += "</table>";
+                halvefinaleCDTXT.Text = halvepouleCD;
+
+            }
+            else
+            {
+                Response.Write(count);
+            }
+
+            connectieDatabase database12 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
+            DataTable dt12 = database12.dataSelecteren("SELECT TOP 2 Teams.Team_naam AS Team1, Teams.Team_ID AS Team2, Teams.Winst AS Winst, Teams.Vlag AS Vlag FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE Teams.Poule_ID BETWEEN 1 AND 4 ORDER BY Teams.Winst DESC;");
+
+            string finalevlag = "";
+            string finaleteam = "";
+            string winstfinale = "";
+
+            int count12 = dt12.Rows.Count;
+
+            if (count12 > 0)
+            {
+                finalepoule += "<table border='1'>";
+                finalepoule += "<th width='40px'></th>";
+                finalepoule += "<th width='175px'></th>";
+                finalepoule += "<th width='50px'>Winst</th>";
+                for (int i = 0; i < count12; i++)
+                {
+                    finalevlag = dt12.Rows[i]["Vlag"].ToString();
+                    finaleteam = dt12.Rows[i]["Team1"].ToString();
+                    winstfinale = dt12.Rows[i]["Winst"].ToString();
+
+                    if (i + 1 <= 2)
+                    {
+                        finalepoule += "<tr>";
+                        finalepoule += "<td width='40px'><img src='" + finalevlag + "' /></td>";
+                        finalepoule += "<td width='175px' height='25px'>" + finaleteam + "</td>";
+                        finalepoule += "<td width='50px' style='text-align: center'>" + winstfinale + "</td>";
+                        finalepoule += "</tr>";
+                    }
+                }
+
+                finalepoule += "</table>";
+                finalepouleLabel.Text = finalepoule;
+
+            }
+            else
+            {
+                Response.Write(count);
+            }
+
+            connectieDatabase database13 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
+            DataTable dt13 = database13.dataSelecteren("SELECT TOP 1 Teams.Team_naam AS Team1, Teams.Team_ID AS Team2, Teams.Winst AS Winst, Teams.Vlag AS Vlag FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE Teams.Poule_ID BETWEEN 1 AND 4 ORDER BY Teams.Winst DESC;");
+
+            string winnaarvlag = "";
+            string winnaarteam = "";
+            string winnaarfinale = "";
+
+            int count13 = dt13.Rows.Count;
+
+            if (count13 > 0)
+            {
+                winnaarpoule += "<table border='1'>";
+                winnaarpoule += "<th width='1200px'></th>";
+                for (int i = 0; i < count13; i++)
+                {
+                    winnaarvlag = dt13.Rows[i]["Vlag"].ToString();
+                    winnaarteam = dt13.Rows[i]["Team1"].ToString();
+                    winnaarfinale = dt13.Rows[i]["Winst"].ToString();
+
+                    if (i + 1 <= 1)
+                    {
+                        winnaarpoule += "<tr>";
+                        winnaarpoule += "<td width='1200px'> EN DE WINNAAR IS <img src='" + winnaarvlag + "' /> " + winnaarteam + " MET " + winnaarfinale + " PUNTEN.</td>";
+                        winnaarpoule += "</tr>";
+                    }
+                }
+
+                winnaarpoule += "</table>";
+                finalepoule2Label.Text = winnaarpoule;
 
             }
             else

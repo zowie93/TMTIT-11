@@ -61,9 +61,10 @@
     <Content Include="adminMaken.aspx" />
     <Content Include="App_Data\tmtit11database.accdb" />
     <Content Include="App_Data\tmtit11database.mdb" />
-    <Content Include="backup_pouleinvullen.aspx" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
+    <Content Include="img\128-144.jpg" />
+    <Content Include="img\bggrass.png" />
     <Content Include="img\caret.png" />
     <Content Include="img\header.png" />
     <Content Include="img\logo.png" />
@@ -105,9 +106,8 @@
     <Content Include="menu_jquery.js" />
     <Content Include="poulegegevens.aspx" />
     <Content Include="pouleinvullen.aspx" />
+    <Content Include="scoretabel.aspx" />
     <Content Include="speelschema.aspx" />
-    <Content Include="instructies.txt" />
-    <Content Include="uitslagen.aspx" />
     <Content Include="veranderwachtwoord.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -135,19 +135,12 @@
     <Compile Include="loguit.aspx.designer.cs">
       <DependentUpon>loguit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="uitslagen.aspx.cs">
-      <DependentUpon>uitslagen.aspx</DependentUpon>
+    <Compile Include="scoretabel.aspx.cs">
+      <DependentUpon>scoretabel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="uitslagen.aspx.designer.cs">
-      <DependentUpon>uitslagen.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="backup_pouleinvullen.aspx.cs">
-      <DependentUpon>backup_pouleinvullen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="backup_pouleinvullen.aspx.designer.cs">
-      <DependentUpon>backup_pouleinvullen.aspx</DependentUpon>
+    <Compile Include="scoretabel.aspx.designer.cs">
+      <DependentUpon>scoretabel.aspx</DependentUpon>
     </Compile>
     <Compile Include="encryptie.cs" />
     <Compile Include="Default.aspx.cs">
@@ -200,6 +193,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.master" />
+    <None Include="Properties\PublishProfiles\ICT-LAB.pubxml" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

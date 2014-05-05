@@ -144,6 +144,11 @@ namespace tmtit_11.App_Code
             DataTable dt7 = new DataTable();
             DataTable dt8 = new DataTable();
             DataTable dt9 = new DataTable();
+            DataTable dt10 = new DataTable();
+            DataTable dt11 = new DataTable();
+            DataTable dt12 = new DataTable();
+            DataTable dt13 = new DataTable();
+            DataTable dt14 = new DataTable();
             try
             {
                 dataAdapter1.SelectCommand.CommandText = query;
@@ -153,6 +158,11 @@ namespace tmtit_11.App_Code
                 dataAdapter1.Fill(dt7);
                 dataAdapter1.Fill(dt8);
                 dataAdapter1.Fill(dt9);
+                dataAdapter1.Fill(dt10);
+                dataAdapter1.Fill(dt11);
+                dataAdapter1.Fill(dt12);
+                dataAdapter1.Fill(dt13);
+                dataAdapter1.Fill(dt14);
                 dataAdapter1.SelectCommand.Connection.Close();
                 errorBericht = "";
             }
@@ -169,6 +179,11 @@ namespace tmtit_11.App_Code
             return dt7;
             return dt8;
             return dt9;
+            return dt10;
+            return dt11;
+            return dt12;
+            return dt13;
+            return dt14;
         }
 
         public int dataInvoegen(string query)

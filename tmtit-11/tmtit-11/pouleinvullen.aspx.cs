@@ -19,7 +19,7 @@ namespace tmtit_11
             {
                 Response.Redirect("Login.aspx");
             }
-            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt = database.dataSelecteren("SELECT Wedstrijden.Wedstrijd_ID, Teams.Team_naam AS Team1, Teams_1.Team_naam AS Team2, Wedstrijden.doelpuntenteam1 AS Score1, Wedstrijden.doelpuntenteam2 AS Score2, Poule.Poule_naam AS Poulenaam FROM (Teams AS Teams_1 INNER JOIN (Teams INNER JOIN Wedstrijden ON Teams.Team_ID = Wedstrijden.Team1_ID) ON Teams_1.Team_ID = Wedstrijden.Team2_ID) INNER JOIN Poule ON Wedstrijden.Poule_ID = Poule.Poule_ID");
 
             if (!IsPostBack)
@@ -67,7 +67,7 @@ namespace tmtit_11
         }
         public void fillgrid()
         {
-            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt = database.dataSelecteren("SELECT Wedstrijden.Wedstrijd_ID, Teams.Team_naam AS Team1, Teams_1.Team_naam AS Team2, Wedstrijden.doelpuntenteam1 AS Score1, Wedstrijden.doelpuntenteam2 AS Score2, Poule.Poule_naam AS Poulenaam FROM (Teams AS Teams_1 INNER JOIN (Teams INNER JOIN Wedstrijden ON Teams.Team_ID = Wedstrijden.Team1_ID) ON Teams_1.Team_ID = Wedstrijden.Team2_ID) INNER JOIN Poule ON Wedstrijden.Poule_ID = Poule.Poule_ID");
 
 
@@ -206,7 +206,7 @@ namespace tmtit_11
 
             string pouleA = "";
 
-            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt = database.dataSelecteren("SELECT TOP 2 Teams.Team_naam, Teams.Team_ID, Teams.Winst AS Winst, Poule.Poule_naam FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE (((Teams.Poule_ID)=1)) ORDER BY Teams.Winst DESC");
 
             string teamnaam = "";
@@ -327,7 +327,7 @@ namespace tmtit_11
 
             string pouleA = "";
 
-            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt = database.dataSelecteren("SELECT TOP 2 Teams.Team_naam, Teams.Team_ID, Teams.Winst AS Winst, Poule.Poule_naam FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE (((Teams.Poule_ID)=2)) ORDER BY Teams.Winst DESC");
 
             string teamnaam = "";
@@ -368,7 +368,7 @@ namespace tmtit_11
 
             string pouleA = "";
 
-            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt = database.dataSelecteren("SELECT TOP 2 Teams.Team_naam, Teams.Team_ID, Teams.Winst AS Winst, Poule.Poule_naam FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE (((Teams.Poule_ID)=3)) ORDER BY Teams.Winst DESC");
 
             string teamnaam = "";
@@ -410,7 +410,7 @@ namespace tmtit_11
 
             string pouleA = "";
 
-            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt = database.dataSelecteren("SELECT TOP 2 Teams.Team_naam, Teams.Team_ID, Teams.Winst AS Winst, Poule.Poule_naam FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE (((Teams.Poule_ID)=4)) ORDER BY Teams.Winst DESC");
 
             string teamnaam = "";
@@ -462,7 +462,7 @@ namespace tmtit_11
 
             string halvefinale = "";
 
-            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt = database.dataSelecteren("SELECT TOP 1 Teams.Team_naam, Teams.Team_ID, Teams.Winst AS Winst, Poule.Poule_naam FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE (((Teams.Poule_ID)=1)) ORDER BY Teams.Winst DESC");
 
             string halvefinaleteam1 = "";
@@ -483,7 +483,7 @@ namespace tmtit_11
 
             halvelblTxtLand1.Text = halvefinaleteam1;
 
-            connectieDatabase database2 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database2 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt2 = database2.dataSelecteren2("SELECT TOP 1 Teams.Team_naam, Teams.Team_ID, Teams.Winst AS Winst, Poule.Poule_naam FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE (((Teams.Poule_ID)=2)) ORDER BY Teams.Winst DESC");
 
             string halvefinaleteam2 = "";
@@ -502,7 +502,7 @@ namespace tmtit_11
 
             halvelblTxtLand2.Text = halvefinaleteam2;
 
-            connectieDatabase database3 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database3 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt3 = database.dataSelecteren("SELECT TOP 1 Teams.Team_naam, Teams.Team_ID, Teams.Winst AS Winst, Poule.Poule_naam FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE (((Teams.Poule_ID)=3)) ORDER BY Teams.Winst DESC");
 
             string halvefinaleteam3 = "";
@@ -521,7 +521,7 @@ namespace tmtit_11
 
             halvelblTxtLand3.Text = halvefinaleteam3;
 
-            connectieDatabase database4 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database4 = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt4 = database2.dataSelecteren2("SELECT TOP 1 Teams.Team_naam, Teams.Team_ID, Teams.Winst AS Winst, Poule.Poule_naam FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID WHERE (((Teams.Poule_ID)=4)) ORDER BY Teams.Winst DESC");
 
             string halvefinaleteam4 = "";
@@ -716,7 +716,7 @@ namespace tmtit_11
 
             string finale = "";
 
-            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=|DataDirectory|tmtit11database.mdb");
+            connectieDatabase database = new connectieDatabase("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + HttpContext.Current.Server.MapPath("/database/tmtit11database.mdb") + "");
             DataTable dt = database.dataSelecteren("SELECT TOP 2 Teams.Team_naam, Teams.Team_ID, Teams.Winst AS Winst, Teams.Gelijkspel, Teams.Verloren, Teams.Poule_ID, Poule.Poule_naam FROM Teams INNER JOIN Poule ON Teams.Poule_ID = Poule.Poule_ID ORDER BY Teams.Winst DESC");
 
             string teamnaam = "";
